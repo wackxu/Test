@@ -13,9 +13,32 @@ For more details see issue https://github.com/kubernetes/kubernetes/issues/63814
 
 Use serialized container spec to determines whether a container meets the given spec instead of container hash.
 
+## Design Overview
+
+Instead of store hash values in container labels, we can save the serialized container spec we had when we launched the container. And during detection, kubelet can load it, apply defaults, and do a semantic deepequal to see if there was an actual diff that required restarting.
+
 ## Implementation
 
+1. Adds new label `containerSerializedSpecLabel`, to save serialized container spec; Load and apply the defaults for deep equal.
 
+```go
+containerSerializedSpecLabel = "io.kubernetes.container.spec"
+```
+2. caclute the serialized container spec.
+
+```go
+// SerializedContainerSpec returns the serialized spec of the container. It is used to compare
+// the running container with its desired spec.
+func SerializedContainerSpec(container *v1.Container) string {
+	rawCon, err := json.Marshal(container)
+	if err != nil {
+		glog.Errorf("Unable to marshal container %q: %v", container.Name, err)
+		return ""
+	}
+	return string(rawCon)
+}
+```
+3. detect the running container whether meet the desired spec.
 
 ```go
 func containerChanged(container *v1.Container, containerStatus *kubecontainer.ContainerStatus) (string, string, bool) {
@@ -37,15 +60,4 @@ func containerChanged(container *v1.Container, containerStatus *kubecontainer.Co
 }
 ```
 
-```
-// SerializedContainerSpec returns the serialized spec of the container. It is used to compare
-// the running container with its desired spec.
-func SerializedContainerSpec(container *v1.Container) string {
-	rawCon, err := json.Marshal(container)
-	if err != nil {
-		glog.Errorf("Unable to marshal container %q: %v", container.Name, err)
-		return ""
-	}
-	return string(rawCon)
-}
-```
+
