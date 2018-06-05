@@ -9,7 +9,7 @@ Now that latest docker supports live-restore, we should consider fixing this in 
 
 For more details see issue  
 
-https://github.com/kubernetes/kubernetes/issues/63814
+https://github.com/kubernetes/kubernetes/issues/63814  
 https://github.com/kubernetes/kubernetes/issues/23104
 
 ## Proposal
