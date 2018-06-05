@@ -45,7 +45,7 @@ func SerializedContainerSpec(container *v1.Container) string {
 
 ```go
 func containerChanged(container *v1.Container, containerStatus *kubecontainer.ContainerStatus) (string, string, bool) {
-	expectedSpec := kubecontainer.(container)
+	expectedSpec := kubecontainer.SerializedContainerSpec(container)
 
 	oldContainer := &v1.Container{}
 	if err := json.Unmarshal([]byte(containerStatus.SerializedSpec), oldContainer); err != nil {
@@ -61,6 +61,7 @@ func containerChanged(container *v1.Container, containerStatus *kubecontainer.Co
 
 	return expectedSpec, containerStatus.SerializedSpec, isEqual
 }
+
 ```
 For older container without `containerSerializedSpecLabel` in labels, we will force add the label to the container and the container will restart, because that the container labels cannot be updated (moby/moby#21721) without a restart currently.  
 
