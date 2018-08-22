@@ -1,0 +1,70 @@
+                B: "content2-2":{"metadata":{"name":"content2-2","selfLink":"/apis/snapshot.storage.k8s.io/v1alpha1/volumesnapshotcontents/content2-2","creat"spec":{"csiVolumeSnapshotSource":{"driver":"csi-mock-plugin","snapshotHandle":"sid2-2","size":null},"volumeSnapshotRef":{"kind":"volumesnapshots","namespacesnap2-2","uid":"snapuid2-2-x","apiVersion":"snapshot.storage.k8s.io/v1alpha1"},"persistentVolumeRef":{"kind":"PersistentVolume","namespace":"default","name":uid2-2","apiVersion":"v1"},"snapshotClassName":"valid-secret-class"}}}
+
+        framework_test.go:472: Event "Warning SnapshotBindFailed" not emitted
+        framework_test.go:969: Test "2-5 - snapshot and content bound, status ready false -> true": Events do not match
+        framework_test.go:1030: Test "2-7 - snapshot and content bound, csi driver get status error" failed: timed out waiting for the condition
+        framework_test.go:961: Test "2-7 - snapshot and content bound, csi driver get status error": snapshot check failed [A-expected, B-got result]: {"snapame":"snap2-7","namespace":"default","selfLink":"/apis/snapshot.storage.k8s.io/v1alpha1/namespaces/defaultvolumesnapshotcontents/snap2-7","uid":"snapuid2-7",null},"spec":{"source":{"name":"claim2-7","kind":"PersistentVolumeClaim"},"snapshotContentName":"content2-7","snapshotClassName":"valid-secret-class"},"statu8-08-22T06:49:39Z","size":null,"ready":false
+
+                A: }}}
+
+                B: ,"error":{"time":null,"message":"Failed to check and update snapshot: failed to check snapshot status snap2-7 with error failed to list sn-7: \"mock driver get status error\""}}}}
+
+        framework_test.go:1030: Test "2-8 - snapshot and content bound, apiserver update status error" failed: timed out waiting for the condition
+        framework_test.go:961: Test "2-8 - snapshot and content bound, apiserver update status error": snapshot check failed [A-expected, B-got result]: {"sn"name":"snap2-8","namespace":"default","selfLink":"/apis/snapshot.storage.k8s.io/v1alpha1/namespaces/defaultvolumesnapshotcontents/snap2-8","uid":"snapuid2-8":null},"spec":{"source":{"name":"claim2-8","kind":"PersistentVolumeClaim"},"snapshotContentName":"content2-8","snapshotClassName":"valid-secret-class"},"sta018-08-22T06:49:39Z","size":null,"ready":false
+
+                A: }}}
+
+                B: ,"error":{"time":null,"message":"Failed to check and update snapshot: snapshot controller failed to update default/snap2-8 on API server: }}
+
+        framework_test.go:478: Unexpected event received, expected "Warning SnapshotCheckandUpdateFailed", got "Warning SnapshotUploadError Failed to upload
+        framework_test.go:969: Test "2-8 - snapshot and content bound, apiserver update status error": Events do not match
+        framework_test.go:1024: Test "2-9 - bind when snapshot and content matches" failed: snapshot controller failed to update default/snap2-9 on API servepshot : snapshot not found
+        framework_test.go:1030: Test "2-9 - bind when snapshot and content matches" failed: timed out waiting for the condition
+        framework_test.go:961: Test "2-9 - bind when snapshot and content matches": snapshot check failed [A-expected, B-got result]: {"snap2-9":{"metadata":amespace":"default","selfLink":"/apis/snapshot.storage.k8s.io/v1alpha1/namespaces/defaultvolumesnapshotcontents/snap2-9","uid":"snapuid2-9","creationTimestamurce":{"name":"claim2-9","kind":"PersistentVolumeClaim"},"snapshotContentName":"
+
+                A: content2-9","snapshotClassName":"valid-secret-class"},"status":{"createdAt":null,"size":null,"ready":false}}}
+
+                B: ","snapshotClassName":"valid-secret-class"},"status":{"createdAt":null,"size":null,"ready":false}}}
+
+        framework_test.go:1030: Test "2-10 - do not bind when snapshot and content not match" failed: timed out waiting for the condition
+        framework_test.go:961: Test "2-10 - do not bind when snapshot and content not match": snapshot check failed [A-expected, B-got result]: {"snap2-10":{snap2-10","namespace":"default","selfLink":"/apis/snapshot.storage.k8s.io/v1alpha1/namespaces/defaultvolumesnapshotcontents/snap2-10","uid":"snapuid2-10","crl},"spec":{"source":{"name":"claim2-10","kind":"PersistentVolumeClaim"},"snapshotContentName":"","snapshotClassName":"valid-secret-class"},"status":{"created,"ready":false
+
+                A: }}}
+
+                B: ,"error":{"time":null,"message":"Failed to create snapshot: failed to retrieve PVC claim2-10 from the API server: \"Cannot find claim clai
+
+        framework_test.go:965: Test "2-10 - do not bind when snapshot and content not match": content check failed [A-expected, B-got]: {"content2-10":{"metant2-10","selfLink":"/apis/snapshot.storage.k8s.io/v1alpha1/volumesnapshotcontents/content2-10","creationTimestamp":null},"spec":{"csiVolumeSnapshotSource":{"ugin","snapshotHandle":"sid2-10","size":null},"volumeSnapshotRef":{"kind":"volumesnapshots","namespace":"default","name":"snap2-10","uid":"snapuid2-10
+
+                A: ","apiVersion":"snapshot.storage.k8s.io/v1alpha1"},"persistentVolumeRef":{"kind":"PersistentVolume","namespace":"default","name":"volume2-,"apiVersion":"v1"},"snapshotClassName":"valid-secret-class"}}}
+
+                B: -x","apiVersion":"snapshot.storage.k8s.io/v1alpha1"},"persistentVolumeRef":{"kind":"PersistentVolume","namespace":"default","name":"volume0","apiVersion":"v1"},"snapshotClassName":"valid-secret-class"}}}
+
+        framework_test.go:1030: Test "3-1 - ready snapshot lost reference to VolumeSnapshotContent" failed: timed out waiting for the condition
+        framework_test.go:961: Test "3-1 - ready snapshot lost reference to VolumeSnapshotContent": snapshot check failed [A-expected, B-got result]: {"snap3me":"snap3-1","namespace":"default","selfLink":"/apis/snapshot.storage.k8s.io/v1alpha1/namespaces/defaultvolumesnapshotcontents/snap3-1","uid":"snapuid3-1","ull},"spec":{"source":{"name":"claim3-1","kind":"PersistentVolumeClaim"},"snapshotContentName":"","snapshotClassName":"valid-secret-class"},"status":{"create49:39Z","size":null,"ready":
+
+                A: true}}}
+
+                B: false,"error":{"time":null,"message":"Bound snapshot has lost reference to VolumeSnapshotContent"}}}}
+
+        framework_test.go:1030: Test "3-2 - ready snapshot bound to none-exist content" failed: timed out waiting for the condition
+        framework_test.go:961: Test "3-2 - ready snapshot bound to none-exist content": snapshot check failed [A-expected, B-got result]: {"snap3-2":{"metada","namespace":"default","selfLink":"/apis/snapshot.storage.k8s.io/v1alpha1/namespaces/defaultvolumesnapshotcontents/snap3-2","uid":"snapuid3-2","creationTime{"source":{"name":"claim3-2","kind":"PersistentVolumeClaim"},"snapshotContentName":"content3-2","snapshotClassName":"valid-secret-class"},"status":{"createdA:39Z","size":null,"ready":
+
+                A: true}}}
+
+                B: false,"error":{"time":null,"message":"VolumeSnapshotContent is missing"}}}}
+
+        framework_test.go:1030: Test "3-4 - ready snapshot misbound to VolumeSnapshotContent" failed: timed out waiting for the condition
+        framework_test.go:961: Test "3-4 - ready snapshot misbound to VolumeSnapshotContent": snapshot check failed [A-expected, B-got result]: {"snap3-4":{"nap3-4","namespace":"default","selfLink":"/apis/snapshot.storage.k8s.io/v1alpha1/namespaces/defaultvolumesnapshotcontents/snap3-4","uid":"snapuid3-4","creatispec":{"source":{"name":"claim3-4","kind":"PersistentVolumeClaim"},"snapshotContentName":"content3-4","snapshotClassName":"valid-secret-class"},"status":{"crT06:49:39Z","size":null,"ready":
+
+                A: true}}}
+
+                B: false,"error":{"time":null,"message":"VolumeSnapshotContent is not bound to the VolumeSnapshot correctly"}}}}
+
+=== RUN   TestDeleteSync
+E0822 14:51:25.028515   42592 goroutinemap.go:150] Operation for "delete-content1-4[]" failed. No retries permitted until 2018-08-22 14:51:25.528499128 +08007 (durationBeforeRetry 500ms). Error: "csiSnapshotterSecretName and csiSnapshotterSecretNamespace parameters must be specified together"
+E0822 14:51:25.028838   42592 goroutinemap.go:150] Operation for "delete-content1-5[]" failed. No retries permitted until 2018-08-22 14:51:25.528825696 +08008 (durationBeforeRetry 500ms). Error: "failed to delete snapshot \"content1-5\", err: failed to delete snapshot data content1-5: \"mock csi driver delete err
+E0822 14:51:25.029117   42592 goroutinemap.go:150] Operation for "delete-content1-6[]" failed. No retries permitted until 2018-08-22 14:51:25.529105894 +08001 (durationBeforeRetry 500ms). Error: "failed to delete VolumeSnapshotContent content1-6 from API server: \"mock delete error\""
+E0822 14:51:25.029541   42592 goroutinemap.go:150] Operation for "delete-content1-8[]" failed. No retries permitted until 2018-08-22 14:51:25.529529628 +08001 (durationBeforeRetry 500ms). Error: "failed to delete VolumeSnapshotContent content1-8 from API server: \"Cannot delete content content1-8: not found\""
+--- PASS: TestDeleteSync (0.01s)
+FAIL
+FAIL    command-line-arguments  106.051s
