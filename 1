@@ -1,1 +1,24 @@
-Snapshot failed to bind VolumeSnapshotContent, Could not bind snapshot snap2-2 and content content2-2, the VolumeSnapshotRef does not match
+fframework_test.go:1049: Test "7-1 - fail create snapshot with snapshot class non-existing" failed: timed out waiting for the condition
+        framework_test.go:980: Test "7-1 - fail create snapshot with snapshot class non-existing": snapshot check failed [A-expected, B-got result]: {"snap7-1":{"metadata":{"name":"snap7-1","namespace":"default","selfLink":"/apis/snapshot.storage.k8s.io/v1alpha1/namespaces/default/volumesnapshots/snap7-1","uid":"snapuid7-1","creationTimestamp":null},"spec":{"source":{"name":"claim7-1","kind":"PersistentVolumeClaim"},"snapshotContentName":"","snapshotClassName":"non-existing"},"status":{"createdAt":null,"size":null,"ready":false
+
+                A: }}}
+
+                B: ,"error":{"time":null,"message":"Failed to create snapshot: failed to retrieve snapshot class non-existing: \"volumesnapshotclass.snapshot.storage.k8s.io \\\"non-existing\\\" not found\""}}}}
+
+        framework_test.go:1049: Test "7-2 - fail create snapshot with snapshot class non-existing" failed: timed out waiting for the condition
+        framework_test.go:980: Test "7-2 - fail create snapshot with snapshot class non-existing": snapshot check failed [A-expected, B-got result]: {"snap7-2":{"metadata":{"name":"snap7-2","namespace":"default","selfLink":"/apis/snapshot.storage.k8s.io/v1alpha1/namespaces/default/volumesnapshots/snap7-2","uid":"snapuid7-2","creationTimestamp":null},"spec":{"source":{"name":"claim7-2","kind":"PersistentVolumeClaim"},"snapshotContentName":"","snapshotClassName":"invalid-secret-class"},"status":{"createdAt":null,"size":null,"ready":false
+
+                A: }}}
+
+                B: ,"error":{"time":null,"message":"Failed to create snapshot: csiSnapshotterSecretName and csiSnapshotterSecretNamespace parameters must be specified together"}}}}
+
+        framework_test.go:1132: Unexpected CSI Create Snapshot call: snapshotName=snapshot-snapuid7-2, volume=volume7-2, index: 0, calls: []
+        framework_test.go:1049: Test "7-3 - fail create snapshot with snapshot class default-class but diff driver with storage class" failed: timed out waiting for the condition
+        framework_test.go:980: Test "7-3 - fail create snapshot with snapshot class default-class but diff driver with storage class": snapshot check failed [A-expected, B-got result]: {"snap7-2":{"metadata":{"name":"snap7-2","namespace":"default","selfLink":"/apis/snapshot.storage.k8s.io/v1alpha1/namespaces/default/volumesnapshots/snap7-2","uid":"snapuid7-2","creationTimestamp":null},"spec":{"source":{"name":"claim7-2","kind":"PersistentVolumeClaim"},"snapshotContentName":"","snapshotClassName":"default-class"},"status":{"createdAt":null,"size":null,"ready":false
+
+                A: }}}
+
+                B: ,"error":{"time":null,"message":"Failed to create snapshot: failed to take snapshot of the volume, volume7-2: \"unexpected call\""}}}}
+
+=== RUN   TestDeleteSync
+E0822 17:20:12.948588   41465 goroutinemap.go:150] Operation for "delete-content1-4[]" failed. No retries permitted until 2018-08-22 17:20:13.448557902 +0800 CST m=+41.422965922 (durationBeforeRetry 500ms). Error: "csiSnapshotterSecretName and csiSnapshotterSe
