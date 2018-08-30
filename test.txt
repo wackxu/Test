@@ -1,152 +1,487 @@
-=== RUN   TestCreateSnapshotSync
-E0822 20:12:27.108273   59937 snapshot_controller.go:308] createSnapshot [create-default/snap6-5[snapuid6-5]]: error occurred in createSnapshotOperation: snapshot controller failed to update default/snap6-5 on API server: VersionError
-E0822 20:12:27.108553   59937 goroutinemap.go:150] Operation for "create-default/snap6-5[snapuid6-5]" failed. No retries permitted until 2018-08-22 20:12:27.608530929 +0800 CST m=+20.969901318 (durationBeforeRetry 500ms). Error: "snapshot controller failed to update default/snap6-5 on API server: VersionError"
-E0822 20:12:42.448913   59937 snapshot_controller.go:736] failed to retrieve snapshot class non-existing: "volumesnapshotclass.snapshot.storage.k8s.io \"non-existing\" not found"
-E0822 20:12:42.448950   59937 snapshot_controller.go:448] createSnapshotOperation failed to getClassFromVolumeSnapshot failed to retrieve snapshot class non-existing: "volumesnapshotclass.snapshot.storage.k8s.io \"non-existing\" not found"
-E0822 20:12:42.449019   59937 snapshot_controller.go:308] createSnapshot [create-default/snap7-1[snapuid7-1]]: error occurred in createSnapshotOperation: failed to retrieve snapshot class non-existing: "volumesnapshotclass.snapshot.storage.k8s.io \"non-existing\" not found"
-E0822 20:12:42.449049   59937 goroutinemap.go:150] Operation for "create-default/snap7-1[snapuid7-1]" failed. No retries permitted until 2018-08-22 20:12:42.949027109 +0800 CST m=+36.310397406 (durationBeforeRetry 500ms). Error: "failed to retrieve snapshot class non-existing: \"volumesnapshotclass.snapshot.storage.k8s.io \\\"non-existing\\\" not found\""
-E0822 20:12:42.449446   59937 snapshot_controller.go:308] createSnapshot [create-default/snap7-2[snapuid7-2]]: error occurred in createSnapshotOperation: csiSnapshotterSecretName and csiSnapshotterSecretNamespace parameters must be specified together
-E0822 20:12:42.449537   59937 goroutinemap.go:150] Operation for "create-default/snap7-2[snapuid7-2]" failed. No retries permitted until 2018-08-22 20:12:42.949506268 +0800 CST m=+36.310876697 (durationBeforeRetry 500ms). Error: "csiSnapshotterSecretName and csiSnapshotterSecretNamespace parameters must be specified together"
-E0822 20:12:42.450408   59937 snapshot_controller.go:448] createSnapshotOperation failed to getClassFromVolumeSnapshot cannot figure out the snapshot class automatically, please specify one in snapshot spec.
-E0822 20:12:42.450444   59937 snapshot_controller.go:308] createSnapshot [create-default/snap7-3[snapuid7-3]]: error occurred in createSnapshotOperation: cannot figure out the snapshot class automatically, please specify one in snapshot spec.
-E0822 20:12:42.450466   59937 goroutinemap.go:150] Operation for "create-default/snap7-3[snapuid7-3]" failed. No retries permitted until 2018-08-22 20:12:42.950449977 +0800 CST m=+36.311820370 (durationBeforeRetry 500ms). Error: "cannot figure out the snapshot class automatically, please specify one in snapshot spec."
-E0822 20:12:47.563427   59937 snapshot_controller.go:453] createSnapshotOperation failed to get PersistentVolume object [snap7-4]: Error: [&errors.errorString{s:"failed to retrieve PVC claim7-4 from the API server: \"Cannot find claim claim7-4\""}]
-E0822 20:12:47.563485   59937 snapshot_controller.go:308] createSnapshot [create-default/snap7-4[snapuid7-4]]: error occurred in createSnapshotOperation: failed to retrieve PVC claim7-4 from the API server: "Cannot find claim claim7-4"
-E0822 20:12:47.563509   59937 goroutinemap.go:150] Operation for "create-default/snap7-4[snapuid7-4]" failed. No retries permitted until 2018-08-22 20:12:48.063491452 +0800 CST m=+41.424861840 (durationBeforeRetry 500ms). Error: "failed to retrieve PVC claim7-4 from the API server: \"Cannot find claim claim7-4\""
-E0822 20:12:52.676442   59937 snapshot_controller.go:453] createSnapshotOperation failed to get PersistentVolume object [snap7-5]: Error: [&errors.errorString{s:"failed to retrieve PV volume7-5 from the API server: \"Cannot find volume volume7-5\""}]
-E0822 20:12:52.676492   59937 snapshot_controller.go:308] createSnapshot [create-default/snap7-5[snapuid7-5]]: error occurred in createSnapshotOperation: failed to retrieve PV volume7-5 from the API server: "Cannot find volume volume7-5"
-E0822 20:12:52.676514   59937 goroutinemap.go:150] Operation for "create-default/snap7-5[snapuid7-5]" failed. No retries permitted until 2018-08-22 20:12:53.176497563 +0800 CST m=+46.537867925 (durationBeforeRetry 500ms). Error: "failed to retrieve PV volume7-5 from the API server: \"Cannot find volume volume7-5\""
-E0822 20:12:57.789348   59937 snapshot_controller.go:453] createSnapshotOperation failed to get PersistentVolume object [snap7-6]: Error: [&errors.errorString{s:"the PVC claim7-6 is not yet bound to a PV, will not attempt to take a snapshot"}]
-E0822 20:12:57.789398   59937 snapshot_controller.go:308] createSnapshot [create-default/snap7-6[snapuid7-6]]: error occurred in createSnapshotOperation: the PVC claim7-6 is not yet bound to a PV, will not attempt to take a snapshot
-E0822 20:12:57.789419   59937 goroutinemap.go:150] Operation for "create-default/snap7-6[snapuid7-6]" failed. No retries permitted until 2018-08-22 20:12:58.289403762 +0800 CST m=+51.650774155 (durationBeforeRetry 500ms). Error: "the PVC claim7-6 is not yet bound to a PV, will not attempt to take a snapshot"
-E0822 20:13:02.902576   59937 snapshot_controller.go:308] createSnapshot [create-default/snap7-7[snapuid7-7]]: error occurred in createSnapshotOperation: failed to take snapshot of the volume, volume7-7: "mock create snapshot error"
-E0822 20:13:02.902623   59937 goroutinemap.go:150] Operation for "create-default/snap7-7[snapuid7-7]" failed. No retries permitted until 2018-08-22 20:13:03.402603261 +0800 CST m=+56.763973623 (durationBeforeRetry 500ms). Error: "failed to take snapshot of the volume, volume7-7: \"mock create snapshot error\""
-E0822 20:13:08.015937   59937 snapshot_controller.go:308] createSnapshot [create-default/snap7-8[snapuid7-8]]: error occurred in createSnapshotOperation: snapshot controller failed to update default/snap7-8 on API server: mock update error
-E0822 20:13:08.016007   59937 goroutinemap.go:150] Operation for "create-default/snap7-8[snapuid7-8]" failed. No retries permitted until 2018-08-22 20:13:08.515965248 +0800 CST m=+61.877335646 (durationBeforeRetry 500ms). Error: "snapshot controller failed to update default/snap7-8 on API server: mock update error"
-E0822 20:13:13.144895   59937 snapshot_controller.go:540] Error creating volume snapshot content object for snapshot default/snap7-9: mock create error.
-E0822 20:13:13.144933   59937 snapshot_controller.go:308] createSnapshot [create-default/snap7-9[snapuid7-9]]: error occurred in createSnapshotOperation: snapshot controller failed to update default/snap7-9 on API server: mock create error
-E0822 20:13:13.144956   59937 goroutinemap.go:150] Operation for "create-default/snap7-9[snapuid7-9]" failed. No retries permitted until 2018-08-22 20:13:13.644940518 +0800 CST m=+67.006310909 (durationBeforeRetry 500ms). Error: "snapshot controller failed to update default/snap7-9 on API server: mock create error"
---- FAIL: TestCreateSnapshotSync (66.49s)
-	framework_test.go:1057: Test "6-1 - successful create snapshot with snapshot class gold" failed: timed out waiting for the condition
-	framework_test.go:992: Test "6-1 - successful create snapshot with snapshot class gold": content check failed [A-expected, B-got]: {"snapcontent-snapuid6-1":{"metadata":{"name":"snapcontent-snapuid6-1","creationTimestamp":null},"spec":{"csiVolumeSnapshotSource":{"driver":"csi-mock-plugin","snapshotHandle":"sid6-1","size":
-		
-		A: null},"volumeSnapshotRef":{"kind":"volumesnapshots","namespace":"default","name":"snap6-1","uid":"snapuid6-1","apiVersion":"snapshot.storage.k8s.io/v1alpha1"},"persistentVolumeRef":{"kind":"PersistentVolume","namespace":"default","name":"volume6-1","uid":"pv-uid6-1","apiVersion":"v1"},"snapshotClassName":"gold"}}}
-		
-		B: "1k"},"volumeSnapshotRef":{"kind":"VolumeSnapshot","namespace":"default","name":"snap6-1","uid":"snapuid6-1","apiVersion":"v1alpha1"},"persistentVolumeRef":{"kind":"PersistentVolume","name":"volume6-1","uid":"pv-uid6-1","apiVersion":"v1"},"snapshotClassName":"gold"}}}
-		
-	framework_test.go:1057: Test "6-2 - successful create snapshot with snapshot class silver" failed: timed out waiting for the condition
-	framework_test.go:988: Test "6-2 - successful create snapshot with snapshot class silver": snapshot check failed [A-expected, B-got result]: {"snap6-2":{"metadata":{"name":"snap6-2","namespace":"default","selfLink":"/apis/snapshot.storage.k8s.io/v1alpha1/namespaces/default/volumesnapshots/snap6-2","uid":"snapuid6-2","creationTimestamp":null},"spec":{"source":{"name":"claim6-2","kind":"PersistentVolumeClaim"},"snapshotContentName":"snapcontent-snapuid6-2","snapshotClassName":"silver"},"status":{"createdAt":
-		
-		A: null,"size":"1k","ready":false}}}
-		
-		B: "2018-08-22T12:12:06Z","size":"1k","ready":false}}}
-		
-	framework_test.go:992: Test "6-2 - successful create snapshot with snapshot class silver": content check failed [A-expected, B-got]: {"snapcontent-snapuid6-2":{"metadata":{"name":"snapcontent-snapuid6-2","creationTimestamp":null},"spec":{"csiVolumeSnapshotSource":{"driver":"csi-mock-plugin","snapshotHandle":"sid6-2","size":
-		
-		A: null},"volumeSnapshotRef":{"kind":"volumesnapshots","namespace":"default","name":"snap6-2","uid":"snapuid6-2","apiVersion":"snapshot.storage.k8s.io/v1alpha1"},"persistentVolumeRef":{"kind":"PersistentVolume","namespace":"default","name":"volume6-2","uid":"pv-uid6-2","apiVersion":"v1"},"snapshotClassName":"silver"}}}
-		
-		B: "1k"},"volumeSnapshotRef":{"kind":"VolumeSnapshot","namespace":"default","name":"snap6-2","uid":"snapuid6-2","apiVersion":"v1alpha1"},"persistentVolumeRef":{"kind":"PersistentVolume","name":"volume6-2","uid":"pv-uid6-2","apiVersion":"v1"},"snapshotClassName":"silver"}}}
-		
-	framework_test.go:1057: Test "6-3 - successful create snapshot with snapshot class valid-secret-class" failed: timed out waiting for the condition
-	framework_test.go:988: Test "6-3 - successful create snapshot with snapshot class valid-secret-class": snapshot check failed [A-expected, B-got result]: {"snap6-3":{"metadata":{"name":"snap6-3","namespace":"default","selfLink":"/apis/snapshot.storage.k8s.io/v1alpha1/namespaces/default/volumesnapshots/snap6-3","uid":"snapuid6-3","creationTimestamp":null},"spec":{"source":{"name":"claim6-3","kind":"PersistentVolumeClaim"},"snapshotContentName":"snapcontent-snapuid6-3","snapshotClassName":"valid-secret-class"},"status":{"createdAt":
-		
-		A: null,"size":"1k","ready":false}}}
-		
-		B: "2018-08-22T12:12:06Z","size":"1k","ready":false}}}
-		
-	framework_test.go:992: Test "6-3 - successful create snapshot with snapshot class valid-secret-class": content check failed [A-expected, B-got]: {"snapcontent-snapuid6-3":{"metadata":{"name":"snapcontent-snapuid6-3","creationTimestamp":null},"spec":{"csiVolumeSnapshotSource":{"driver":"csi-mock-plugin","snapshotHandle":"sid6-3","size":
-		
-		A: null},"volumeSnapshotRef":{"kind":"volumesnapshots","namespace":"default","name":"snap6-3","uid":"snapuid6-3","apiVersion":"snapshot.storage.k8s.io/v1alpha1"},"persistentVolumeRef":{"kind":"PersistentVolume","namespace":"default","name":"volume6-3","uid":"pv-uid6-3","apiVersion":"v1"},"snapshotClassName":"valid-secret-class"}}}
-		
-		B: "1k"},"volumeSnapshotRef":{"kind":"VolumeSnapshot","namespace":"default","name":"snap6-3","uid":"snapuid6-3","apiVersion":"v1alpha1"},"persistentVolumeRef":{"kind":"PersistentVolume","name":"volume6-3","uid":"pv-uid6-3","apiVersion":"v1"},"snapshotClassName":"valid-secret-class"}}}
-		
-	framework_test.go:1057: Test "6-4 - successful create snapshot with snapshot class empty-secret-class" failed: timed out waiting for the condition
-	framework_test.go:988: Test "6-4 - successful create snapshot with snapshot class empty-secret-class": snapshot check failed [A-expected, B-got result]: {"snap6-4":{"metadata":{"name":"snap6-4","namespace":"default","selfLink":"/apis/snapshot.storage.k8s.io/v1alpha1/namespaces/default/volumesnapshots/snap6-4","uid":"snapuid6-4","creationTimestamp":null},"spec":{"source":{"name":"claim6-4","kind":"PersistentVolumeClaim"},"snapshotContentName":"snapcontent-snapuid6-4","snapshotClassName":"empty-secret-class"},"status":{"createdAt":
-		
-		A: null,"size":"1k","ready":false}}}
-		
-		B: "2018-08-22T12:12:06Z","size":"1k","ready":false}}}
-		
-	framework_test.go:992: Test "6-4 - successful create snapshot with snapshot class empty-secret-class": content check failed [A-expected, B-got]: {"snapcontent-snapuid6-4":{"metadata":{"name":"snapcontent-snapuid6-4","creationTimestamp":null},"spec":{"csiVolumeSnapshotSource":{"driver":"csi-mock-plugin","snapshotHandle":"sid6-4","size":
-		
-		A: null},"volumeSnapshotRef":{"kind":"volumesnapshots","namespace":"default","name":"snap6-4","uid":"snapuid6-4","apiVersion":"snapshot.storage.k8s.io/v1alpha1"},"persistentVolumeRef":{"kind":"PersistentVolume","namespace":"default","name":"volume6-4","uid":"pv-uid6-4","apiVersion":"v1"},"snapshotClassName":"empty-secret-class"}}}
-		
-		B: "1k"},"volumeSnapshotRef":{"kind":"VolumeSnapshot","namespace":"default","name":"snap6-4","uid":"snapuid6-4","apiVersion":"v1alpha1"},"persistentVolumeRef":{"kind":"PersistentVolume","name":"volume6-4","uid":"pv-uid6-4","apiVersion":"v1"},"snapshotClassName":"empty-secret-class"}}}
-		
-	framework_test.go:1057: Test "6-5 - successful create snapshot with default snapshot class" failed: timed out waiting for the condition
-	framework_test.go:988: Test "6-5 - successful create snapshot with default snapshot class": snapshot check failed [A-expected, B-got result]: {"snap6-5":{"metadata":{"name":"snap6-5","namespace":"default","selfLink":"/apis/snapshot.storage.k8s.io/v1alpha1/namespaces/default/volumesnapshots/snap6-5","uid":"snapuid6-5","creationTimestamp":null},"spec":{"source":{"name":"claim6-5","kind":"PersistentVolumeClaim"},"snapshotContentName":"
-		
-		A: snapcontent-snapuid6-5","snapshotClassName":"default-class"},"status":{"createdAt":null,"size":"1k","ready":false}}}
-		
-		B: ","snapshotClassName":"default-class"},"status":{"createdAt":null,"size":null,"ready":false}}}
-		
-	framework_test.go:992: Test "6-5 - successful create snapshot with default snapshot class": content check failed [A-expected, B-got]: {
-		
-		A: "snapcontent-snapuid6-5":{"metadata":{"name":"snapcontent-snapuid6-5","creationTimestamp":null},"spec":{"csiVolumeSnapshotSource":{"driver":"csi-mock-plugin","snapshotHandle":"sid6-5","size":null},"volumeSnapshotRef":{"kind":"volumesnapshots","namespace":"default","name":"snap6-5","uid":"snapuid6-5","apiVersion":"snapshot.storage.k8s.io/v1alpha1"},"persistentVolumeRef":{"kind":"PersistentVolume","namespace":"default","name":"volume6-5","uid":"pv-uid6-5","apiVersion":"v1"},"snapshotClassName":"default-class"}}}
-		
-		B: }
-		
-	framework_test.go:1057: Test "6-6 - successful create snapshot with status uploading" failed: timed out waiting for the condition
-	framework_test.go:992: Test "6-6 - successful create snapshot with status uploading": content check failed [A-expected, B-got]: {"snapcontent-snapuid6-6":{"metadata":{"name":"snapcontent-snapuid6-6","creationTimestamp":null},"spec":{"csiVolumeSnapshotSource":{"driver":"csi-mock-plugin","snapshotHandle":"sid6-6","size":
-		
-		A: null},"volumeSnapshotRef":{"kind":"volumesnapshots","namespace":"default","name":"snap6-6","uid":"snapuid6-6","apiVersion":"snapshot.storage.k8s.io/v1alpha1"},"persistentVolumeRef":{"kind":"PersistentVolume","namespace":"default","name":"volume6-6","uid":"pv-uid6-6","apiVersion":"v1"},"snapshotClassName":"gold"}}}
-		
-		B: "1k"},"volumeSnapshotRef":{"kind":"VolumeSnapshot","namespace":"default","name":"snap6-6","uid":"snapuid6-6","apiVersion":"v1alpha1"},"persistentVolumeRef":{"kind":"PersistentVolume","name":"volume6-6","uid":"pv-uid6-6","apiVersion":"v1"},"snapshotClassName":"gold"}}}
-		
-	framework_test.go:1057: Test "6-7 - successful create snapshot with status error uploading" failed: timed out waiting for the condition
-	framework_test.go:992: Test "6-7 - successful create snapshot with status error uploading": content check failed [A-expected, B-got]: {"snapcontent-snapuid6-7":{"metadata":{"name":"snapcontent-snapuid6-7","creationTimestamp":null},"spec":{"csiVolumeSnapshotSource":{"driver":"csi-mock-plugin","snapshotHandle":"sid6-7","size":
-		
-		A: null},"volumeSnapshotRef":{"kind":"volumesnapshots","namespace":"default","name":"snap6-7","uid":"snapuid6-7","apiVersion":"snapshot.storage.k8s.io/v1alpha1"},"persistentVolumeRef":{"kind":"PersistentVolume","namespace":"default","name":"volume6-7","uid":"pv-uid6-7","apiVersion":"v1"},"snapshotClassName":"gold"}}}
-		
-		B: "1k"},"volumeSnapshotRef":{"kind":"VolumeSnapshot","namespace":"default","name":"snap6-7","uid":"snapuid6-7","apiVersion":"v1alpha1"},"persistentVolumeRef":{"kind":"PersistentVolume","name":"volume6-7","uid":"pv-uid6-7","apiVersion":"v1"},"snapshotClassName":"gold"}}}
-		
-	framework_test.go:1057: Test "7-3 - fail create snapshot with snapshot class default-class but diff driver with storage class" failed: timed out waiting for the condition
-	framework_test.go:988: Test "7-3 - fail create snapshot with snapshot class default-class but diff driver with storage class": snapshot check failed [A-expected, B-got result]: {"snap7-3":{"metadata":{"name":"snap7-3","namespace":"default","selfLink":"/apis/snapshot.storage.k8s.io/v1alpha1/namespaces/default/volumesnapshots/snap7-3","uid":"snapuid7-3","creationTimestamp":null},"spec":{"source":{"name":"claim7-3","kind":"PersistentVolumeClaim"},"snapshotContentName":"","snapshotClassName":""},"status":{"createdAt":null,"size":null,"ready":false,"error":{"time":null,"message":"Failed to create snapshot: 
-		
-		A: failed to take snapshot of the volume, volume7-3: \"unexpected call\""}}}}
-		
-		B: cannot figure out the snapshot class automatically, please specify one in snapshot spec."}}}}
-		
-	framework_test.go:1057: Test "7-4 - fail create snapshot with no-existing claim" failed: timed out waiting for the condition
-	framework_test.go:988: Test "7-4 - fail create snapshot with no-existing claim": snapshot check failed [A-expected, B-got result]: {"snap7-4":{"metadata":{"name":"snap7-4","namespace":"default","selfLink":"/apis/snapshot.storage.k8s.io/v1alpha1/namespaces/default/volumesnapshots/snap7-4","uid":"snapuid7-4","creationTimestamp":null},"spec":{"source":{"name":"claim7-4","kind":"PersistentVolumeClaim"},"snapshotContentName":"","snapshotClassName":"gold"},"status":{"createdAt":null,"size":null,"ready":false,"error":{"time":null,"message":"Failed to create snapshot: failed to 
-		
-		A: take snapshot of the volume, volume7-4: \"unexpected call\""}}}}
-		
-		B: retrieve PVC claim7-4 from the API server: \"Cannot find claim claim7-4\""}}}}
-		
-	framework_test.go:1057: Test "7-5 - fail create snapshot with no-existing volume" failed: timed out waiting for the condition
-	framework_test.go:988: Test "7-5 - fail create snapshot with no-existing volume": snapshot check failed [A-expected, B-got result]: {"snap7-5":{"metadata":{"name":"snap7-5","namespace":"default","selfLink":"/apis/snapshot.storage.k8s.io/v1alpha1/namespaces/default/volumesnapshots/snap7-5","uid":"snapuid7-5","creationTimestamp":null},"spec":{"source":{"name":"claim7-5","kind":"PersistentVolumeClaim"},"snapshotContentName":"","snapshotClassName":"gold"},"status":{"createdAt":null,"size":null,"ready":false,"error":{"time":null,"message":"Failed to create snapshot: failed to 
-		
-		A: take snapshot of the volume, volume7-5: \"unexpected call\""}}}}
-		
-		B: retrieve PV volume7-5 from the API server: \"Cannot find volume volume7-5\""}}}}
-		
-	framework_test.go:1057: Test "7-6 - fail create snapshot with claim that is not yet bound" failed: timed out waiting for the condition
-	framework_test.go:988: Test "7-6 - fail create snapshot with claim that is not yet bound": snapshot check failed [A-expected, B-got result]: {"snap7-6":{"metadata":{"name":"snap7-6","namespace":"default","selfLink":"/apis/snapshot.storage.k8s.io/v1alpha1/namespaces/default/volumesnapshots/snap7-6","uid":"snapuid7-6","creationTimestamp":null},"spec":{"source":{"name":"claim7-6","kind":"PersistentVolumeClaim"},"snapshotContentName":"","snapshotClassName":"gold"},"status":{"createdAt":null,"size":null,"ready":false,"error":{"time":null,"message":"Failed to create snapshot: 
-		
-		A: failed to take snapshot of the volume, volume7-6: \"unexpected call\""}}}}
-		
-		B: the PVC claim7-6 is not yet bound to a PV, will not attempt to take a snapshot"}}}}
-		
-	framework_test.go:1057: Test "7-7 - fail create snapshot due to csi driver error" failed: timed out waiting for the condition
-	framework_test.go:988: Test "7-7 - fail create snapshot due to csi driver error": snapshot check failed [A-expected, B-got result]: {"snap7-7":{"metadata":{"name":"snap7-7","namespace":"default","selfLink":"/apis/snapshot.storage.k8s.io/v1alpha1/namespaces/default/volumesnapshots/snap7-7","uid":"snapuid7-7","creationTimestamp":null},"spec":{"source":{"name":"claim7-7","kind":"PersistentVolumeClaim"},"snapshotContentName":"","snapshotClassName":"gold"},"status":{"createdAt":
-		
-		A: "2018-08-22T12:12:06Z","size":"1k","ready":false,"error":{"time":null,"message":"Failed to create snapshot: %v"}}}}
-		
-		B: null,"size":null,"ready":false,"error":{"time":null,"message":"Failed to create snapshot: failed to take snapshot of the volume, volume7-7: \"mock create snapshot error\""}}}}
-		
-	framework_test.go:1057: Test "7-8 - fail create snapshot due to cannot update snapshot status" failed: timed out waiting for the condition
-	framework_test.go:988: Test "7-8 - fail create snapshot due to cannot update snapshot status": snapshot check failed [A-expected, B-got result]: {"snap7-8":{"metadata":{"name":"snap7-8","namespace":"default","selfLink":"/apis/snapshot.storage.k8s.io/v1alpha1/namespaces/default/volumesnapshots/snap7-8","uid":"snapuid7-8","creationTimestamp":null},"spec":{"source":{"name":"claim7-8","kind":"PersistentVolumeClaim"},"snapshotContentName":"","snapshotClassName":"gold"},"status":{"createdAt":
-		
-		A: "2018-08-22T12:12:06Z","size":"1k","ready":false}}}
-		
-		B: null,"size":null,"ready":false,"error":{"time":null,"message":"Failed to create snapshot: snapshot controller failed to update default/snap7-8 on API server: mock update error"}}}}
-		
-=== RUN   TestDeleteSync
-E0822 20:13:13.146211   59937 goroutinemap.go:150] Operation for "delete-content1-4[]" failed. No retries permitted until 2018-08-22 20:13:13.645910577 +0800 CST m=+67.007280972 (durationBeforeRetry 500ms). Error: "csiSnapshotterSecretName and csiSnapshotterSecretNamespace parameters must be specified together"
-E0822 20:13:13.148496   59937 goroutinemap.go:150] Operation for "delete-content1-5[]" failed. No retries permitted until 2018-08-22 20:13:13.648473881 +0800 CST m=+67.009844274 (durationBeforeRetry 500ms). Error: "failed to delete snapshot \"content1-5\", err: failed to delete snapshot data content1-5: \"mock csi driver delete error\""
-E0822 20:13:13.148798   59937 goroutinemap.go:150] Operation for "delete-content1-6[]" failed. No retries permitted until 2018-08-22 20:13:13.648785704 +0800 CST m=+67.010156099 (durationBeforeRetry 500ms). Error: "failed to delete VolumeSnapshotContent content1-6 from API server: \"mock delete error\""
-E0822 20:13:13.149252   59937 goroutinemap.go:150] Operation for "delete-content1-8[]" failed. No retries permitted until 2018-08-22 20:13:13.649240542 +0800 CST m=+67.010610954 (durationBeforeRetry 500ms). Error: "failed to delete VolumeSnapshotContent content1-8 from API server: \"Cannot delete content content1-8: not found\""
---- PASS: TestDeleteSync (0.01s)
-FAIL
-FAIL	command-line-arguments	66.524s
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/downloadIstio.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/addons/grafana/fix_datasources.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tools/run_shellcheck.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tools/dump_kubernetes.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tools/setup_perf_cluster.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tools/run_canonical_perf_tests.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tools/convert_perf_results.py
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tools/vagrant/provision-vagrant.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tools/deb/postinst.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tools/deb/istio-iptables.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tools/deb/istio-ca.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tools/deb/Dockerfile
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tools/deb/istio-node-agent-start.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tools/deb/istio-start.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tools/deb/deb_test.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/release/start_gcb_publish.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/release/create_github_release.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/release/create_release_archives.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/release/gcb_build_lib.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/release/cloud_builder.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/release/modify_values.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/release/start_gcb_tag.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/release/create_tag_reference.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/release/downloadIstioCandidate.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/release/publish_release.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/release/airflow_scripts.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/release/start_gcb_build.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/release/store_artifacts.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/release/json_parse_shared.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/release/pipeline/dags/istio_daily_release_1_0.py
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/release/pipeline/dags/istio_monthly_dag.py
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/release/pipeline/dags/istio_daily_release_0_8.py
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/release/pipeline/dags/istio_common_dag.py
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/release/pipeline/dags/istio_common_daily.py
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/release/pipeline/dags/istio_daily_master.py
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/release/pipeline/operators/gcs_to_gcs.py
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/release/pipeline/operators/gcs_hook.py
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/release/pipeline/operators/gcs_copy_operator.py
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/release/pipeline/configs/environment_config.py
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/.circleci/Dockerfile
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/.circleci/Makefile
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/docker/fetch_cacerts.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/docker/build_and_push_go_generate_dependency.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/circonus/circonus_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/bypass/bypass_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/bypass/util.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/bypass/bypass.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/stackdriver/stackdriver_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/stackdriver/stackdriver.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/stackdriver/trace/exporter_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/stackdriver/trace/exporter.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/stackdriver/trace/trace.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/stackdriver/trace/trace_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/stackdriver/helper/common_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/stackdriver/helper/common.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/stackdriver/metric/metric.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/stackdriver/metric/distribution_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/stackdriver/metric/merge_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/stackdriver/metric/distribution.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/stackdriver/metric/metric_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/stackdriver/metric/bufferedClient.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/stackdriver/metric/bufferedClient_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/stackdriver/metric/merge.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/stackdriver/log/log_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/stackdriver/log/log.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/signalfx/tracing.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/cloudwatch/cloudwatch.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/cloudwatch/cloudwatch_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/cloudwatch/client.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/cloudwatch/handler_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/cloudwatch/handler.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/prometheus/server.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/prometheus/prometheus.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/prometheus/prometheus_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/prometheus/server_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/rbac/rbac.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/rbac/controller.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/rbac/util.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/rbac/controller_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/rbac/util_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/solarwinds/metrics_handler.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/solarwinds/metrics_handler_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/solarwinds/solarwinds.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/solarwinds/log_handler.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/solarwinds/log_handler_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/solarwinds/solarwinds_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/solarwinds/internal/papertrail/papertrail_logger.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/solarwinds/internal/papertrail/papertrail_logger_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/solarwinds/internal/appoptics/client_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/solarwinds/internal/appoptics/client.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/solarwinds/internal/appoptics/measurements_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/solarwinds/internal/appoptics/mock_measurements_service_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/solarwinds/internal/appoptics/measurements.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/solarwinds/internal/appoptics/batching.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/solarwinds/internal/appoptics/batching_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/opa/opa.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/redisquota/redisquota_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/redisquota/fixed_window.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/redisquota/redisquota.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/redisquota/rolling_window.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/list/stringList.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/list/list.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/list/ipList.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/list/regexList.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/kubernetesenv/cache_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/kubernetesenv/kubernetesenv_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/kubernetesenv/kubernetesenv.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/adapter/kubernetesenv/cache.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/tools/mixgen/cmd/api_go.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/tools/mixgen/cmd/api_proto.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/tools/adapterlinter/testdata/bad/gorutn_logimprt2.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/tools/adapterlinter/testdata/bad/gorutn_logimprt.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/tools/adapterlinter/testdata/good/good.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/docker/extract.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/template/sample/createinstance_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/template/sample/dispatch_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/pkg/adapter/info.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/pkg/adapter/handler.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/pkg/protobuf/yaml/castUtil.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/pkg/protobuf/yaml/encoder.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/pkg/protobuf/yaml/encoder_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/pkg/protobuf/yaml/namedEncoder.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/pkg/protobuf/yaml/castUtil_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/pkg/protobuf/yaml/resolver.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/pkg/protobuf/yaml/dynamic/encoder.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/pkg/protobuf/yaml/dynamic/handler_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/pkg/protobuf/yaml/dynamic/encoder_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/pkg/protobuf/yaml/dynamic/encoderUtil.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/pkg/protobuf/yaml/dynamic/valueTypeEncoder_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/pkg/protobuf/yaml/dynamic/builder.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/pkg/protobuf/yaml/dynamic/primitive.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/pkg/protobuf/yaml/dynamic/errors_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/pkg/protobuf/yaml/dynamic/valueTypeEncoder.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/pkg/protobuf/yaml/dynamic/handler.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/pkg/config/adapterInfoRegistry.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/pkg/config/mcp/backend_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/pkg/config/mcp/backend.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/pkg/config/mcp/conversion.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/pkg/runtime/testing/data/logger_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/pkg/runtime/config/descriptorUtil.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/pkg/runtime/config/descriptorUtil_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/bin/generate_word_list.py
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/prometheus/cmd/Dockerfile
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/prometheus/cmd/Makefile
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/disable_check_cache/disable_check_cache_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/disable_check_cache/doc.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/dynamic_attribute/dynamic_attribute_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/dynamic_attribute/doc.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/istio_authn_origin_jwt_bound_origin/authn_report_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/istio_authn_origin_jwt_bound_origin/doc.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/disable_tcp_check_calls/disable_tcp_check_calls_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/disable_tcp_check_calls/doc.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/check_cache/doc.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/check_cache/check_cache_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/istio_authn_origin_jwt_bound_peer/authn_report_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/istio_authn_origin_jwt_bound_peer/doc.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/pilotplugin/pilotplugin_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/pilotplugin/doc.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/istio_authn_peer_reject_no_jwt/doc.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/istio_authn_peer_reject_no_jwt/authn_peer_reject_no_jwt_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/check_report_large_post_request/doc.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/check_report_large_post_request/check_report_large_post_request_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/check_report_disable/doc.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/check_report_disable/check_report_disable_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/pilotplugin_mtls/doc.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/pilotplugin_mtls/pilotplugin_mtls_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/pilotplugin_mtls/testdata/generate.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/fault_inject/fault_inject_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/fault_inject/doc.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/mixer_internal_fail/mixer_internal_fail_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/mixer_internal_fail/doc.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/istio_authn_origin_reject_no_jwt/doc.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/istio_authn_origin_reject_no_jwt/authn_origin_reject_no_jwt_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/check_cache_hit/check_cache_hit_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/check_cache_hit/doc.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/env/setup.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/env/envoy.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/env/ports.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/env/mixer_server.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/env/mixer_filter_config.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/env/envoy_conf.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/env/http_client.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/env/attributes.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/env/http_server.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/tcp_filter/tcp_filter_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/tcp_filter/doc.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/global_dictionary/global_dictionary_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/global_dictionary/doc.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/istio_authn_peer_jwt_bound_peer/authn_report_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/istio_authn_peer_jwt_bound_peer/doc.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/route_directive/doc.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/route_directive/route_directive_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/report_batch/report_batch_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/report_batch/doc.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/pilotplugin_tcp/pilotplugin_tcp_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/pilotplugin_tcp/doc.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/quota/quota_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/quota/doc.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/istio_authn_peer_reject_no_mtls/authn_peer_reject_no_mtls_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/istio_authn_peer_reject_no_mtls/doc.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/network_policy/network_policy_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/network_policy/doc.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/test_data/authn_test_config.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/check_report/doc.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/check_report/check_report_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/istio_authn_peer_reject_no_tls/authn_peer_reject_no_tls_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/istio_authn_peer_reject_no_tls/doc.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/quota_cache/quota_cache_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/quota_cache/doc.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/dynamic_listener/dynamic_listener_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/dynamic_listener/doc.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/tcp_filter_periodical_report/doc.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/tcp_filter_periodical_report/tcp_filter_periodical_report_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/istio_authn_peer_jwt_bound_origin/authn_report_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/istio_authn_peer_jwt_bound_origin/doc.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/failed_request/failed_request_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/client/failed_request/doc.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/listbackend/cmd/Dockerfile
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/mixer/test/listbackend/cmd/Makefile
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pilot/pkg/networking/plugin/registry/registry.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pilot/pkg/model/gateway.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pilot/test/server/echo/echo.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pilot/test/server/echo/handler.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/prow/e2e-cluster_wide-auth.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/prow/e2e-mixer-no_auth.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/prow/istio-unit-tests.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/prow/e2e-dashboard.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/prow/e2e-pilot-no_auth.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/prow/e2e-bookInfoTests.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/prow/e2e-bookInfoTests-envoyv2-v1alpha3.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/prow/e2e-suite-rbac-auth.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/prow/istio-pilot-multicluster-e2e.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/prow/e2e-suite-rbac-no_auth.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/prow/e2e-suite.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/prow/e2e-pilot-no_auth-k8s-1.10.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/prow/istio-pilot-e2e-envoyv2-v1alpha3-k8s-1.10.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/prow/e2e-suite-rbac-auth-k8s-1.10.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/prow/mason_lib.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/prow/lib.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/prow/istio-pilot-e2e-envoyv2-v1alpha3.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/prow/istio-postsubmit.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/prow/e2e-simpleTests.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/prow/istio-presubmit.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/prow/cluster_lib.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/security/tools/jwt/sa-jwt.py
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/security/tools/jwt/samples/gen-jwt.py
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/security/docker/start_app.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/security/proto/generate.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/security/pkg/pki/testdata/multilevelpki/certs.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/security/bin/e2e.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/security/samples/plugin_ca_certs/gen_certs.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/e2e_istio_preinstalled.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/e2e/local/common_linux.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/e2e/local/common_macos.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/e2e/local/vagrant/setup_vm.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/e2e/local/vagrant/setup_host.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/e2e/local/vagrant/install_prereqs_debian.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/e2e/local/vagrant/revert_dockerdaemon_linux.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/e2e/local/vagrant/cleanup_linux_host.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/e2e/local/vagrant/setup_dockerdaemon_linux.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/e2e/local/vagrant/cleanup_host.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/e2e/local/vagrant/setup_kubectl_config_host.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/e2e/local/vagrant/install_prereqs_macos.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/e2e/local/vagrant/setup_test.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/e2e/local/vagrant/install_prereqs.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/e2e/local/vagrant/revert_kubectl_config_host.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/e2e/local/minikube/setup_host.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/e2e/local/minikube/install_prereqs_debian.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/e2e/local/minikube/setup_minikube_env.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/e2e/local/minikube/cleanup_host.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/e2e/local/minikube/install_prereqs_macos.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/e2e/local/minikube/setup_test.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/e2e/local/minikube/install_prereqs.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/e2e/tests/showcase/mixer_showcase_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/e2e/tests/showcase/showcase_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/e2e/tests/showcase/pilot_showcase_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/e2e/tests/showcase/simple_showcase_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/e2e/framework/test_flags.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/integration2/galley/validation_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/integration2/galley/data.gen.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/integration2/galley/main_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/integration2/examples/basic/basic_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/integration2/examples/pilot/pilot_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/integration2/examples/externalcomp/externalcomp_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/util/checker/whitelist.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/util/checker/rule.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/util/checker/report.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/util/checker/checker.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/util/checker/testlinter/unittest_lint_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/util/checker/testlinter/whitelist.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/util/checker/testlinter/main.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/util/checker/testlinter/rules_matcher.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/util/checker/testlinter/integtest_lint_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/util/checker/testlinter/lint_rules_list.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/util/checker/testlinter/e2etest_lint_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/util/checker/testlinter/testdata/unit_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/util/checker/testlinter/testdata/integtest_integ_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/util/checker/testlinter/testdata/e2e/e2e_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/util/checker/testlinter/testdata/integration/integtest_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/util/checker/testlinter/rules/no_short.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/util/checker/testlinter/rules/no_sleep.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/util/checker/testlinter/rules/skip_issue.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/util/checker/testlinter/rules/no_goroutine.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/util/checker/testlinter/rules/util.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/util/checker/testlinter/rules/short_skip.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/helm/setup.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/tests/integration/example/integration.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/install/updateVersion.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/install/tools/setupMeshEx.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/install/tools/setupIstioVM.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/istioctl/pkg/writer/pilot/status.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/istioctl/pkg/writer/pilot/status_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/istioctl/pkg/writer/pilot/auth_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/istioctl/pkg/writer/pilot/auth.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/istioctl/pkg/convert/ingress.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/istioctl/pkg/kubernetes/client.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/istioctl/cmd/istioctl/convert_ingress.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/istioctl/cmd/istioctl/rbac.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/istioctl/cmd/istioctl/authn.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/istioctl/cmd/istioctl/convert_ingress_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/istioctl/cmd/istioctl/gendeployment/cmd_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/istioctl/cmd/istioctl/gendeployment/yaml.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/istioctl/cmd/istioctl/gendeployment/cmd.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/kube/secretcontroller/secretcontroller_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/ctrlz/topics/collection.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/mcp/configz/configz.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/mcp/configz/configz_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/mcp/configz/assets.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/mcp/testing/server.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/mcp/testing/testcerts/generate-certs.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/mcp/testing/testcerts/testcerts.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/mcp/snapshot/inmemory_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/mcp/snapshot/inmemory.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/mcp/server/listchecker.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/mcp/server/listchecker_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/mcp/creds/watcher_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/mcp/creds/create_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/mcp/creds/create.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/mcp/creds/watcher.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/config.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/eventually.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/service/echo/factory.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/service/echo/application.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/service/echo/handler.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/protocol/client.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/fakes/policy/controller.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/fakes/policy/settings.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/fakes/policy/backend.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/fakes/policy/conversion.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/util/istio_env.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/kube/retry.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/kube/kubectl.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/kube/config.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/kube/accessor.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/kube/shell.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/kube/forwarder.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/framework/operations.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/framework/driver.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/framework/environment.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/framework/internal/context.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/framework/internal/tracker.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/framework/internal/controller.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/framework/internal/resettable.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/framework/internal/configurable.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/framework/internal/tmp.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/framework/components/components.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/framework/components/registry/registry.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/framework/components/mixer/mixer.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/framework/components/pilot/pilot_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/framework/components/pilot/pilot.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/framework/components/apps/components.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/framework/components/apps/local/app.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/framework/components/apps/local/apps.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/framework/components/apps/local/envoy/envoy.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/framework/components/apps/local/envoy/admin_util.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/framework/components/apps/local/envoy/discovery/filter.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/framework/components/apps/local/envoy/agent/agent.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/framework/components/apps/local/envoy/agent/application.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/framework/components/apps/local/envoy/agent/pilot/agent.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/framework/components/apps/local/envoy/agent/pilot/agent_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/framework/components/apps/local/envoy/agent/pilot/reserveport/api.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/framework/components/apps/local/envoy/agent/pilot/reserveport/port.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/framework/components/apps/local/envoy/agent/pilot/reserveport/manager.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/framework/components/apps/local/envoy/agent/pilot/reserveport/pool.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/framework/components/apps/kube/app.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/framework/components/apps/kube/apps.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/framework/components/apps/api/apps.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/framework/components/apiserver/apiserver.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/framework/components/policybackend/policybackend.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/framework/component/component.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/framework/environment/environment.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/framework/environments/local/implementation.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/framework/environments/kubernetes/fortioapp.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/framework/environments/kubernetes/implementation.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/framework/errors/errors.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/framework/tmpl/tmpl.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/framework/tmpl/parameters.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/framework/dependency/instance.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/framework/dependency/dependencies.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/framework/settings/flags.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/framework/settings/envvar.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/pkg/test/framework/settings/settings.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/galley/tools/mcpc/main.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/galley/tools/gen-meta/gen-meta.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/galley/pkg/kube/interfaces_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/galley/pkg/kube/resourcespec_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/galley/pkg/kube/interfaces.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/galley/pkg/kube/schema_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/galley/pkg/kube/resourcespec.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/galley/pkg/kube/schema.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/galley/pkg/kube/converter/converter.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/galley/pkg/kube/converter/proto_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/galley/pkg/kube/converter/converter_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/galley/pkg/kube/converter/proto.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/galley/pkg/kube/converter/legacy/gen.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/galley/pkg/kube/source/source.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/galley/pkg/kube/source/source_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/galley/pkg/kube/source/listener.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/galley/pkg/kube/source/listener_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/galley/pkg/testing/common/mocklog.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/galley/pkg/testing/mock/watch.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/galley/pkg/testing/mock/kube.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/galley/pkg/metadata/types_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/galley/pkg/metadata/kube/types_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/galley/pkg/server/server.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/galley/pkg/server/args_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/galley/pkg/server/configmap_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/galley/pkg/server/args.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/galley/pkg/server/configmap.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/galley/pkg/server/server_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/galley/pkg/runtime/distributor.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/galley/pkg/runtime/distributor_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/galley/pkg/runtime/source.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/galley/pkg/runtime/source_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/galley/pkg/runtime/state_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/galley/pkg/runtime/processor.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/galley/pkg/runtime/strategy.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/galley/pkg/runtime/processor_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/galley/pkg/runtime/strategy_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/galley/pkg/runtime/state.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/galley/pkg/runtime/resource/resource.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/galley/pkg/runtime/resource/schema_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/galley/pkg/runtime/resource/proto.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/galley/pkg/runtime/resource/resource_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/galley/pkg/runtime/resource/schema.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/galley/pkg/runtime/resource/event.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/galley/pkg/runtime/resource/event_test.go
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/bin/init.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/bin/ghdata.py
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/bin/init_helm.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/bin/gobuild.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/bin/check_license.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/bin/perfcheck.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/bin/check_dashboards.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/bin/linters.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/bin/ci2gubernator.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/bin/codecov.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/bin/protoc.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/bin/check_boilerplate.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/bin/testEnvRootMinikube.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/bin/check_links.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/bin/counterfeiter.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/bin/envsetup.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/bin/diff_yaml.py
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/bin/istio-proxy-cfg.py
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/bin/mixer_codegen.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/bin/check_pilot_codegen.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/bin/testEnvLocalK8S.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/bin/go-bindata.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/samples/rawvm/demo.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/samples/rawvm/Makefile
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/samples/bookinfo/build_push_update_images.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/samples/bookinfo/src/build-services.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/samples/bookinfo/src/details/Dockerfile
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/samples/bookinfo/src/ratings/Dockerfile
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/samples/bookinfo/src/productpage/Dockerfile
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/samples/bookinfo/src/productpage/productpage.py
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/samples/bookinfo/src/mysql/Dockerfile
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/samples/bookinfo/src/reviews/reviews-wlpcfg/Dockerfile
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/samples/bookinfo/src/mongodb/Dockerfile
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/samples/bookinfo/src/mongodb/script.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/samples/bookinfo/platform/kube/cleanup.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/samples/bookinfo/platform/consul/cleanup.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/samples/helloworld/loadgen.sh
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/samples/helloworld/src/app.py
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/samples/helloworld/src/Dockerfile
+Boilerplate header is wrong for: /home/xsw/gowork/src/istio.io/istio/samples/helloworld/src/build_service.sh
