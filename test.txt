@@ -1,1 +1,5 @@
 https://console.huaweicloud.com/swr/?locale=zh-cn&region=cn-north-1&agencyId=576c734612e84e7e87bad49b81ece763#/app/warehouse/warehouseMangeDetail/aostest/apm-demo/obscmd?type=otherSharing
+
+
+docker tag swr.cn-north-1.myhuaweicloud.com/apm-demo/obscmd:latest  swr.cn-north-1.myhuaweicloud.com/x00417115/obscmd:latest
+docker push swr.cn-north-1.myhuaweicloud.com/x00417115/obscmd:latest
