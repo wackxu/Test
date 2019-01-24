@@ -1,0 +1,517 @@
+==== start of log for container csi-snapshotter-0/csi-snapshotter ====
+I0124 12:19:05.933115       1 main.go:76] Version: v0.4.1-0-g5bad0876
+I0124 12:19:05.951805       1 connection.go:83] Connecting to /csi/csi.sock
+I0124 12:19:05.951960       1 connection.go:111] Still trying, connection is CONNECTING
+I0124 12:19:05.952154       1 connection.go:111] Still trying, connection is TRANSIENT_FAILURE
+I0124 12:19:06.952360       1 connection.go:111] Still trying, connection is CONNECTING
+I0124 12:19:06.952419       1 connection.go:111] Still trying, connection is TRANSIENT_FAILURE
+I0124 12:19:07.994375       1 connection.go:111] Still trying, connection is TRANSIENT_FAILURE
+I0124 12:19:09.170775       1 connection.go:108] Connected
+I0124 12:19:09.170803       1 main.go:135] CSI driver name: "csi-hostpath-v0-csi-volumes-6595"
+I0124 12:19:09.170817       1 connection.go:259] GRPC call: /csi.v0.Identity/Probe
+I0124 12:19:09.171556       1 connection.go:261] GRPC response: 
+I0124 12:19:09.171613       1 connection.go:262] GRPC error: <nil>
+I0124 12:19:09.171621       1 main.go:205] Probe succeeded
+I0124 12:19:09.171629       1 connection.go:259] GRPC call: /csi.v0.Controller/ControllerGetCapabilities
+I0124 12:19:09.172296       1 connection.go:261] GRPC response: capabilities:<rpc:<type:CREATE_DELETE_VOLUME > > capabilities:<rpc:<type:CREATE_DELETE_SNAPSHOT > > capabilities:<rpc:<type:LIST_SNAPSHOTS > > 
+I0124 12:19:09.172382       1 connection.go:262] GRPC error: <nil>
+I0124 12:19:09.172390       1 main.go:159] Start NewCSISnapshotController with snapshotter [csi-hostpath-v0-csi-volumes-6595] kubeconfig [] connectionTimeout [15s] csiAddress [/csi/csi.sock] createSnapshotContentRetryCount [842350745032] createSnapshotContentInterval [10s] resyncPeriod [1m0s] snapshotNamePrefix [snapshot] snapshotNameUUIDLength [842350745072]
+I0124 12:19:09.172971       1 reflector.go:131] Starting reflector *v1alpha1.VolumeSnapshotClass (1m0s) from github.com/kubernetes-csi/external-snapshotter/pkg/client/informers/externalversions/factory.go:117
+I0124 12:19:09.172995       1 reflector.go:169] Listing and watching *v1alpha1.VolumeSnapshotClass from github.com/kubernetes-csi/external-snapshotter/pkg/client/informers/externalversions/factory.go:117
+I0124 12:19:09.173037       1 reflector.go:131] Starting reflector *v1alpha1.VolumeSnapshotContent (1m0s) from github.com/kubernetes-csi/external-snapshotter/pkg/client/informers/externalversions/factory.go:117
+I0124 12:19:09.173052       1 reflector.go:169] Listing and watching *v1alpha1.VolumeSnapshotContent from github.com/kubernetes-csi/external-snapshotter/pkg/client/informers/externalversions/factory.go:117
+I0124 12:19:09.173334       1 reflector.go:131] Starting reflector *v1alpha1.VolumeSnapshot (1m0s) from github.com/kubernetes-csi/external-snapshotter/pkg/client/informers/externalversions/factory.go:117
+I0124 12:19:09.173344       1 reflector.go:169] Listing and watching *v1alpha1.VolumeSnapshot from github.com/kubernetes-csi/external-snapshotter/pkg/client/informers/externalversions/factory.go:117
+I0124 12:19:09.173360       1 snapshot_controller_base.go:139] Starting CSI snapshotter
+I0124 12:19:09.176353       1 snapshot_controller_base.go:169] enqueued "csi-volumes-3906/snapshot-26lrt" for sync
+I0124 12:19:09.176373       1 snapshot_controller_base.go:169] enqueued "csi-volumes-6507/snapshot-fbzm7" for sync
+I0124 12:19:09.176382       1 snapshot_controller_base.go:169] enqueued "default/new-snapshot-demo" for sync
+I0124 12:19:09.176388       1 snapshot_controller_base.go:169] enqueued "csi-volumes-8952/snapshot-h5s4g" for sync
+I0124 12:19:09.179412       1 snapshot_controller_base.go:186] enqueued "snapcontent-2768c340-1fa4-11e9-bb60-fa163ec505d6" for sync
+I0124 12:19:09.179444       1 snapshot_controller_base.go:186] enqueued "snapcontent-3ab10396-1fa4-11e9-bb60-fa163ec505d6" for sync
+I0124 12:19:09.179458       1 snapshot_controller_base.go:186] enqueued "snapcontent-bd6a3eb6-1fa6-11e9-bb60-fa163ec505d6" for sync
+I0124 12:19:09.179473       1 snapshot_controller_base.go:186] enqueued "snapcontent-6ff72b35-1fae-11e9-bb60-fa163ec505d6" for sync
+I0124 12:19:09.179487       1 snapshot_controller_base.go:186] enqueued "snapcontent-43ab615c-1fb4-11e9-bb60-fa163ec505d6" for sync
+I0124 12:19:09.179494       1 snapshot_controller_base.go:186] enqueued "snapcontent-2059f527-1fd2-11e9-bb60-fa163ec505d6" for sync
+I0124 12:19:09.179506       1 snapshot_controller_base.go:186] enqueued "snapcontent-c34c1320-1fa5-11e9-bb60-fa163ec505d6" for sync
+I0124 12:19:09.179520       1 snapshot_controller_base.go:186] enqueued "snapcontent-ca4a95f4-1fb1-11e9-bb60-fa163ec505d6" for sync
+I0124 12:19:09.179531       1 snapshot_controller_base.go:186] enqueued "snapcontent-7897df85-1fb3-11e9-bb60-fa163ec505d6" for sync
+I0124 12:19:09.179543       1 snapshot_controller_base.go:186] enqueued "snapcontent-6b7861ed-1fb4-11e9-bb60-fa163ec505d6" for sync
+I0124 12:19:09.273560       1 shared_informer.go:123] caches populated
+I0124 12:19:09.273598       1 util.go:71] storeObjectUpdate: adding snapshot "csi-volumes-8952/snapshot-h5s4g", version 5440
+I0124 12:19:09.273613       1 util.go:71] storeObjectUpdate: adding snapshot "csi-volumes-3906/snapshot-26lrt", version 734
+I0124 12:19:09.273621       1 util.go:71] storeObjectUpdate: adding snapshot "csi-volumes-6507/snapshot-fbzm7", version 1471
+I0124 12:19:09.273632       1 util.go:71] storeObjectUpdate: adding snapshot "default/new-snapshot-demo", version 3536
+I0124 12:19:09.273648       1 util.go:71] storeObjectUpdate: adding snapshot "snapcontent-2768c340-1fa4-11e9-bb60-fa163ec505d6", version 1121
+I0124 12:19:09.273659       1 util.go:71] storeObjectUpdate: adding snapshot "snapcontent-43ab615c-1fb4-11e9-bb60-fa163ec505d6", version 5024
+I0124 12:19:09.273668       1 util.go:71] storeObjectUpdate: adding snapshot "snapcontent-ca4a95f4-1fb1-11e9-bb60-fa163ec505d6", version 4037
+I0124 12:19:09.273676       1 util.go:71] storeObjectUpdate: adding snapshot "snapcontent-7897df85-1fb3-11e9-bb60-fa163ec505d6", version 4725
+I0124 12:19:09.273685       1 util.go:71] storeObjectUpdate: adding snapshot "snapcontent-6b7861ed-1fb4-11e9-bb60-fa163ec505d6", version 5325
+I0124 12:19:09.273696       1 util.go:71] storeObjectUpdate: adding snapshot "snapcontent-3ab10396-1fa4-11e9-bb60-fa163ec505d6", version 1355
+I0124 12:19:09.273703       1 util.go:71] storeObjectUpdate: adding snapshot "snapcontent-bd6a3eb6-1fa6-11e9-bb60-fa163ec505d6", version 2383
+I0124 12:19:09.273710       1 util.go:71] storeObjectUpdate: adding snapshot "snapcontent-6ff72b35-1fae-11e9-bb60-fa163ec505d6", version 3534
+I0124 12:19:09.273718       1 util.go:71] storeObjectUpdate: adding snapshot "snapcontent-2059f527-1fd2-11e9-bb60-fa163ec505d6", version 8963
+I0124 12:19:09.273725       1 util.go:71] storeObjectUpdate: adding snapshot "snapcontent-c34c1320-1fa5-11e9-bb60-fa163ec505d6", version 1862
+I0124 12:19:09.273734       1 snapshot_controller_base.go:483] controller initialized
+I0124 12:19:09.273786       1 snapshot_controller_base.go:266] contentWorker[snapcontent-2768c340-1fa4-11e9-bb60-fa163ec505d6]
+I0124 12:19:09.273796       1 snapshot_controller_base.go:266] contentWorker[snapcontent-3ab10396-1fa4-11e9-bb60-fa163ec505d6]
+I0124 12:19:09.273802       1 snapshot_controller_base.go:266] contentWorker[snapcontent-bd6a3eb6-1fa6-11e9-bb60-fa163ec505d6]
+I0124 12:19:09.273805       1 snapshot_controller_base.go:201] snapshotWorker[csi-volumes-3906/snapshot-26lrt]
+I0124 12:19:09.273816       1 snapshot_controller_base.go:201] snapshotWorker[csi-volumes-6507/snapshot-fbzm7]
+I0124 12:19:09.273825       1 snapshot_controller_base.go:204] snapshotWorker: snapshot namespace [csi-volumes-3906] name [snapshot-26lrt]
+I0124 12:19:09.273834       1 snapshot_controller_base.go:204] snapshotWorker: snapshot namespace [csi-volumes-6507] name [snapshot-fbzm7]
+I0124 12:19:09.273840       1 snapshot_controller_base.go:347] checkAndUpdateSnapshotClass [snapshot-26lrt]: VolumeSnapshotClassName [csi-volumes-3906-csi-hostpath-v0-csi-volumes-3906-vsc]
+I0124 12:19:09.273848       1 snapshot_controller_base.go:266] contentWorker[snapcontent-2059f527-1fd2-11e9-bb60-fa163ec505d6]
+I0124 12:19:09.273856       1 snapshot_controller_base.go:266] contentWorker[snapcontent-c34c1320-1fa5-11e9-bb60-fa163ec505d6]
+I0124 12:19:09.273847       1 snapshot_controller.go:769] getSnapshotClass: VolumeSnapshotClassName [csi-volumes-3906-csi-hostpath-v0-csi-volumes-3906-vsc]
+I0124 12:19:09.273837       1 snapshot_controller_base.go:201] snapshotWorker[default/new-snapshot-demo]
+I0124 12:19:09.273863       1 snapshot_controller_base.go:266] contentWorker[snapcontent-ca4a95f4-1fb1-11e9-bb60-fa163ec505d6]
+I0124 12:19:09.273867       1 snapshot_controller_base.go:204] snapshotWorker: snapshot namespace [default] name [new-snapshot-demo]
+I0124 12:19:09.273870       1 snapshot_controller_base.go:266] contentWorker[snapcontent-7897df85-1fb3-11e9-bb60-fa163ec505d6]
+I0124 12:19:09.273874       1 snapshot_controller_base.go:347] checkAndUpdateSnapshotClass [new-snapshot-demo]: VolumeSnapshotClassName [csi-hostpath-snapclass]
+I0124 12:19:09.273880       1 snapshot_controller.go:769] getSnapshotClass: VolumeSnapshotClassName [csi-hostpath-snapclass]
+I0124 12:19:09.273884       1 snapshot_controller_base.go:201] snapshotWorker[csi-volumes-8952/snapshot-h5s4g]
+I0124 12:19:09.273886       1 snapshot_controller_base.go:364] VolumeSnapshotClass Snapshotter [csi-hostpath] Snapshot Controller snapshotterName [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:19:09.273888       1 snapshot_controller_base.go:266] contentWorker[snapcontent-6b7861ed-1fb4-11e9-bb60-fa163ec505d6]
+I0124 12:19:09.273889       1 snapshot_controller_base.go:204] snapshotWorker: snapshot namespace [csi-volumes-8952] name [snapshot-h5s4g]
+I0124 12:19:09.273892       1 snapshot_controller_base.go:366] Skipping VolumeSnapshot default/new-snapshot-demo for snapshotter [csi-hostpath] in VolumeSnapshotClass because it does not match with the snapshotter for controller [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:19:09.273903       1 snapshot_controller_base.go:347] checkAndUpdateSnapshotClass [snapshot-h5s4g]: VolumeSnapshotClassName [csi-volumes-8952-csi-hostpath-csi-volumes-8952-vsc]
+I0124 12:19:09.273915       1 snapshot_controller.go:769] getSnapshotClass: VolumeSnapshotClassName [csi-volumes-8952-csi-hostpath-csi-volumes-8952-vsc]
+I0124 12:19:09.273921       1 snapshot_controller_base.go:364] VolumeSnapshotClass Snapshotter [csi-hostpath-csi-volumes-8952] Snapshot Controller snapshotterName [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:19:09.273927       1 snapshot_controller_base.go:366] Skipping VolumeSnapshot csi-volumes-8952/snapshot-h5s4g for snapshotter [csi-hostpath-csi-volumes-8952] in VolumeSnapshotClass because it does not match with the snapshotter for controller [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:19:09.273809       1 snapshot_controller_base.go:266] contentWorker[snapcontent-6ff72b35-1fae-11e9-bb60-fa163ec505d6]
+I0124 12:19:09.273824       1 snapshot_controller_base.go:266] contentWorker[snapcontent-43ab615c-1fb4-11e9-bb60-fa163ec505d6]
+I0124 12:19:09.273865       1 snapshot_controller_base.go:364] VolumeSnapshotClass Snapshotter [csi-hostpath-v0-csi-volumes-3906] Snapshot Controller snapshotterName [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:19:09.273949       1 snapshot_controller_base.go:366] Skipping VolumeSnapshot csi-volumes-3906/snapshot-26lrt for snapshotter [csi-hostpath-v0-csi-volumes-3906] in VolumeSnapshotClass because it does not match with the snapshotter for controller [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:19:09.273845       1 snapshot_controller_base.go:347] checkAndUpdateSnapshotClass [snapshot-fbzm7]: VolumeSnapshotClassName [csi-volumes-6507-csi-hostpath-csi-volumes-6507-vsc]
+I0124 12:19:09.273977       1 snapshot_controller.go:769] getSnapshotClass: VolumeSnapshotClassName [csi-volumes-6507-csi-hostpath-csi-volumes-6507-vsc]
+I0124 12:19:09.273982       1 snapshot_controller_base.go:364] VolumeSnapshotClass Snapshotter [csi-hostpath-csi-volumes-6507] Snapshot Controller snapshotterName [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:19:09.273987       1 snapshot_controller_base.go:366] Skipping VolumeSnapshot csi-volumes-6507/snapshot-fbzm7 for snapshotter [csi-hostpath-csi-volumes-6507] in VolumeSnapshotClass because it does not match with the snapshotter for controller [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:19:10.239737       1 snapshot_controller_base.go:169] enqueued "csi-volumes-6595/snapshot-2dtgh" for sync
+I0124 12:19:10.239780       1 snapshot_controller_base.go:201] snapshotWorker[csi-volumes-6595/snapshot-2dtgh]
+I0124 12:19:10.239788       1 snapshot_controller_base.go:204] snapshotWorker: snapshot namespace [csi-volumes-6595] name [snapshot-2dtgh]
+I0124 12:19:10.239796       1 snapshot_controller_base.go:347] checkAndUpdateSnapshotClass [snapshot-2dtgh]: VolumeSnapshotClassName [csi-volumes-6595-csi-hostpath-v0-csi-volumes-6595-vsc]
+I0124 12:19:10.239801       1 snapshot_controller.go:769] getSnapshotClass: VolumeSnapshotClassName [csi-volumes-6595-csi-hostpath-v0-csi-volumes-6595-vsc]
+I0124 12:19:10.239808       1 snapshot_controller_base.go:364] VolumeSnapshotClass Snapshotter [csi-hostpath-v0-csi-volumes-6595] Snapshot Controller snapshotterName [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:19:10.239815       1 snapshot_controller_base.go:215] passed checkAndUpdateSnapshotClass for snapshot "csi-volumes-6595/snapshot-2dtgh"
+I0124 12:19:10.239821       1 snapshot_controller_base.go:377] updateSnapshot "csi-volumes-6595/snapshot-2dtgh"
+I0124 12:19:10.239899       1 util.go:71] storeObjectUpdate: adding snapshot "csi-volumes-6595/snapshot-2dtgh", version 9209
+I0124 12:19:10.239937       1 snapshot_controller.go:140] synchonizing VolumeSnapshot[csi-volumes-6595/snapshot-2dtgh]: bound to: "", Completed: false
+I0124 12:19:10.239961       1 snapshot_controller.go:189] syncUnreadySnapshot csi-volumes-6595/snapshot-2dtgh
+I0124 12:19:10.239993       1 snapshot_controller.go:260] No VolumeSnapshotContent for VolumeSnapshot csi-volumes-6595/snapshot-2dtgh found
+I0124 12:19:10.240019       1 snapshot_controller.go:304] createSnapshot[csi-volumes-6595/snapshot-2dtgh]: started
+I0124 12:19:10.240057       1 snapshot_controller.go:279] scheduleOperation[create-csi-volumes-6595/snapshot-2dtgh[40ce48c3-1fd2-11e9-bb60-fa163ec505d6]]
+I0124 12:19:10.240090       1 snapshot_controller.go:447] createSnapshot: Creating snapshot csi-volumes-6595/snapshot-2dtgh through the plugin ...
+I0124 12:19:10.240098       1 snapshot_controller.go:455] createSnapshotOperation [snapshot-2dtgh]: VolumeSnapshotClassName [csi-volumes-6595-csi-hostpath-v0-csi-volumes-6595-vsc]
+I0124 12:19:10.240102       1 snapshot_controller.go:769] getSnapshotClass: VolumeSnapshotClassName [csi-volumes-6595-csi-hostpath-v0-csi-volumes-6595-vsc]
+I0124 12:19:10.246642       1 snapshot_controller.go:738] getVolumeFromVolumeSnapshot: snapshot [snapshot-2dtgh] PV name [pvc-360e2317-1fd2-11e9-bb60-fa163ec505d6]
+I0124 12:19:10.246686       1 connection.go:192] CSI CreateSnapshot: snapshot-40ce48c3-1fd2-11e9-bb60-fa163ec505d6
+I0124 12:19:10.246694       1 connection.go:259] GRPC call: /csi.v0.Identity/GetPluginInfo
+I0124 12:19:10.247259       1 connection.go:261] GRPC response: name:"csi-hostpath-csi-volumes-6595" vendor_version:"v0.4.1-0-g2765a866" 
+I0124 12:19:10.247308       1 connection.go:262] GRPC error: <nil>
+I0124 12:19:10.247315       1 connection.go:259] GRPC call: /csi.v0.Controller/CreateSnapshot
+I0124 12:19:10.250324       1 connection.go:261] GRPC response: snapshot:<size_bytes:5368709120 id:"40cffb7a-1fd2-11e9-af99-fa163ec505d6" source_volume_id:"4055f6c0-1fd2-11e9-af99-fa163ec505d6" created_at:1548332350247616734 status:<type:READY details:"Successfully create snapshot" > > 
+I0124 12:19:10.250409       1 connection.go:262] GRPC error: <nil>
+I0124 12:19:10.250418       1 connection.go:216] CSI CreateSnapshot: snapshot-40ce48c3-1fd2-11e9-bb60-fa163ec505d6 driver name [csi-hostpath-csi-volumes-6595] snapshot ID [40cffb7a-1fd2-11e9-af99-fa163ec505d6] time stamp [1548332350247616734] size [5368709120] status [{READY Successfully create snapshot {}  %!s(int32=0)}]
+I0124 12:19:10.250456       1 snapshot_controller.go:492] Created snapshot: driver csi-hostpath-csi-volumes-6595, snapshotId 40cffb7a-1fd2-11e9-af99-fa163ec505d6, timestamp 1548332350247616734, size 5368709120, csiSnapshotStatus type:READY details:"Successfully create snapshot" 
+I0124 12:19:10.250497       1 snapshot_controller.go:497] createSnapshot [csi-volumes-6595/snapshot-2dtgh]: trying to update snapshot creation timestamp
+I0124 12:19:10.250505       1 snapshot_controller.go:670] updating VolumeSnapshot[]csi-volumes-6595/snapshot-2dtgh, set status type:READY details:"Successfully create snapshot" , timestamp 1548332350247616734
+I0124 12:19:10.253355       1 snapshot_controller_base.go:169] enqueued "csi-volumes-6595/snapshot-2dtgh" for sync
+I0124 12:19:10.253381       1 snapshot_controller_base.go:201] snapshotWorker[csi-volumes-6595/snapshot-2dtgh]
+I0124 12:19:10.253387       1 snapshot_controller_base.go:204] snapshotWorker: snapshot namespace [csi-volumes-6595] name [snapshot-2dtgh]
+I0124 12:19:10.253412       1 snapshot_controller_base.go:347] checkAndUpdateSnapshotClass [snapshot-2dtgh]: VolumeSnapshotClassName [csi-volumes-6595-csi-hostpath-v0-csi-volumes-6595-vsc]
+I0124 12:19:10.253424       1 snapshot_controller.go:769] getSnapshotClass: VolumeSnapshotClassName [csi-volumes-6595-csi-hostpath-v0-csi-volumes-6595-vsc]
+I0124 12:19:10.253439       1 snapshot_controller_base.go:364] VolumeSnapshotClass Snapshotter [csi-hostpath-v0-csi-volumes-6595] Snapshot Controller snapshotterName [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:19:10.253452       1 snapshot_controller_base.go:215] passed checkAndUpdateSnapshotClass for snapshot "csi-volumes-6595/snapshot-2dtgh"
+I0124 12:19:10.253458       1 snapshot_controller_base.go:377] updateSnapshot "csi-volumes-6595/snapshot-2dtgh"
+I0124 12:19:10.253488       1 util.go:99] storeObjectUpdate updating snapshot "csi-volumes-6595/snapshot-2dtgh" with version 9210
+I0124 12:19:10.253496       1 snapshot_controller.go:140] synchonizing VolumeSnapshot[csi-volumes-6595/snapshot-2dtgh]: bound to: "", Completed: false
+I0124 12:19:10.253500       1 snapshot_controller.go:189] syncUnreadySnapshot csi-volumes-6595/snapshot-2dtgh
+I0124 12:19:10.253506       1 snapshot_controller.go:260] No VolumeSnapshotContent for VolumeSnapshot csi-volumes-6595/snapshot-2dtgh found
+I0124 12:19:10.253511       1 snapshot_controller.go:304] createSnapshot[csi-volumes-6595/snapshot-2dtgh]: started
+I0124 12:19:10.253516       1 snapshot_controller.go:279] scheduleOperation[create-csi-volumes-6595/snapshot-2dtgh[40ce48c3-1fd2-11e9-bb60-fa163ec505d6]]
+I0124 12:19:10.253521       1 snapshot_controller.go:285] operation "create-csi-volumes-6595/snapshot-2dtgh[40ce48c3-1fd2-11e9-bb60-fa163ec505d6]" is already running, skipping
+I0124 12:19:10.254529       1 snapshot_controller.go:538] createSnapshot [csi-volumes-6595/snapshot-2dtgh]: trying to save volume snapshot content snapcontent-40ce48c3-1fd2-11e9-bb60-fa163ec505d6
+I0124 12:19:10.257530       1 snapshot_controller_base.go:186] enqueued "snapcontent-40ce48c3-1fd2-11e9-bb60-fa163ec505d6" for sync
+I0124 12:19:10.257558       1 snapshot_controller_base.go:266] contentWorker[snapcontent-40ce48c3-1fd2-11e9-bb60-fa163ec505d6]
+I0124 12:19:10.257680       1 snapshot_controller.go:545] volume snapshot content "snapcontent-40ce48c3-1fd2-11e9-bb60-fa163ec505d6" for snapshot "csi-volumes-6595/snapshot-2dtgh" saved
+I0124 12:19:10.257698       1 snapshot_controller.go:616] bindandUpdateVolumeSnapshot for snapshot [snapshot-2dtgh]: snapshotContent [snapcontent-40ce48c3-1fd2-11e9-bb60-fa163ec505d6]
+I0124 12:19:10.259031       1 snapshot_controller.go:628] bindVolumeSnapshotContentToVolumeSnapshot: before bind VolumeSnapshot snapshot-2dtgh to volumeSnapshotContent [snapcontent-40ce48c3-1fd2-11e9-bb60-fa163ec505d6]
+I0124 12:19:10.261262       1 util.go:99] storeObjectUpdate updating snapshot "csi-volumes-6595/snapshot-2dtgh" with version 9212
+I0124 12:19:10.261282       1 snapshot_controller.go:642] bindandUpdateVolumeSnapshot for snapshot completed [&v1alpha1.VolumeSnapshot{TypeMeta:v1.TypeMeta{Kind:"", APIVersion:""}, ObjectMeta:v1.ObjectMeta{Name:"snapshot-2dtgh", GenerateName:"snapshot-", Namespace:"csi-volumes-6595", SelfLink:"/apis/snapshot.storage.k8s.io/v1alpha1/namespaces/csi-volumes-6595/volumesnapshots/snapshot-2dtgh", UID:"40ce48c3-1fd2-11e9-bb60-fa163ec505d6", ResourceVersion:"9212", Generation:3, CreationTimestamp:v1.Time{Time:time.Time{wall:0x0, ext:63683929150, loc:(*time.Location)(0x1b75a00)}}, DeletionTimestamp:(*v1.Time)(nil), DeletionGracePeriodSeconds:(*int64)(nil), Labels:map[string]string(nil), Annotations:map[string]string(nil), OwnerReferences:[]v1.OwnerReference(nil), Initializers:(*v1.Initializers)(nil), Finalizers:[]string(nil), ClusterName:""}, Spec:v1alpha1.VolumeSnapshotSpec{Source:(*v1alpha1.TypedLocalObjectReference)(0xc420572ee0), SnapshotContentName:"snapcontent-40ce48c3-1fd2-11e9-bb60-fa163ec505d6", VolumeSnapshotClassName:(*string)(0xc4203f1500)}, Status:v1alpha1.VolumeSnapshotStatus{CreationTime:(*v1.Time)(0xc420572f00), RestoreSize:(*resource.Quantity)(0xc4205fc280), Ready:false, Error:(*v1beta1.VolumeError)(nil)}}]
+I0124 12:19:10.261358       1 util.go:99] storeObjectUpdate updating snapshot "csi-volumes-6595/snapshot-2dtgh" with version 9212
+I0124 12:19:10.261964       1 snapshot_controller_base.go:169] enqueued "csi-volumes-6595/snapshot-2dtgh" for sync
+I0124 12:19:10.261989       1 snapshot_controller_base.go:201] snapshotWorker[csi-volumes-6595/snapshot-2dtgh]
+I0124 12:19:10.261995       1 snapshot_controller_base.go:204] snapshotWorker: snapshot namespace [csi-volumes-6595] name [snapshot-2dtgh]
+I0124 12:19:10.262001       1 snapshot_controller_base.go:347] checkAndUpdateSnapshotClass [snapshot-2dtgh]: VolumeSnapshotClassName [csi-volumes-6595-csi-hostpath-v0-csi-volumes-6595-vsc]
+I0124 12:19:10.262005       1 snapshot_controller.go:769] getSnapshotClass: VolumeSnapshotClassName [csi-volumes-6595-csi-hostpath-v0-csi-volumes-6595-vsc]
+I0124 12:19:10.262010       1 snapshot_controller_base.go:364] VolumeSnapshotClass Snapshotter [csi-hostpath-v0-csi-volumes-6595] Snapshot Controller snapshotterName [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:19:10.262016       1 snapshot_controller_base.go:215] passed checkAndUpdateSnapshotClass for snapshot "csi-volumes-6595/snapshot-2dtgh"
+I0124 12:19:10.262021       1 snapshot_controller_base.go:377] updateSnapshot "csi-volumes-6595/snapshot-2dtgh"
+I0124 12:19:10.262070       1 util.go:99] storeObjectUpdate updating snapshot "csi-volumes-6595/snapshot-2dtgh" with version 9212
+I0124 12:19:10.262081       1 snapshot_controller.go:140] synchonizing VolumeSnapshot[csi-volumes-6595/snapshot-2dtgh]: bound to: "snapcontent-40ce48c3-1fd2-11e9-bb60-fa163ec505d6", Completed: false
+I0124 12:19:10.262086       1 snapshot_controller.go:189] syncUnreadySnapshot csi-volumes-6595/snapshot-2dtgh
+I0124 12:19:10.262091       1 snapshot_controller.go:352] updateSnapshotStatusWithEvent[csi-volumes-6595/snapshot-2dtgh]
+I0124 12:19:10.264410       1 snapshot_controller_base.go:169] enqueued "csi-volumes-6595/snapshot-2dtgh" for sync
+I0124 12:19:10.265320       1 util.go:99] storeObjectUpdate updating snapshot "csi-volumes-6595/snapshot-2dtgh" with version 9213
+I0124 12:19:10.265361       1 snapshot_controller.go:199] synchronizing unready snapshot[csi-volumes-6595/snapshot-2dtgh]: snapshotcontent "snapcontent-40ce48c3-1fd2-11e9-bb60-fa163ec505d6" requested and not found, will try again next time
+E0124 12:19:10.265379       1 snapshot_controller_base.go:392] could not sync volume "csi-volumes-6595/snapshot-2dtgh": snapshot csi-volumes-6595/snapshot-2dtgh is bound to a non-existing content snapcontent-40ce48c3-1fd2-11e9-bb60-fa163ec505d6
+I0124 12:19:10.265393       1 snapshot_controller_base.go:201] snapshotWorker[csi-volumes-6595/snapshot-2dtgh]
+I0124 12:19:10.265401       1 snapshot_controller_base.go:204] snapshotWorker: snapshot namespace [csi-volumes-6595] name [snapshot-2dtgh]
+I0124 12:19:10.265408       1 snapshot_controller_base.go:347] checkAndUpdateSnapshotClass [snapshot-2dtgh]: VolumeSnapshotClassName [csi-volumes-6595-csi-hostpath-v0-csi-volumes-6595-vsc]
+I0124 12:19:10.265412       1 snapshot_controller.go:769] getSnapshotClass: VolumeSnapshotClassName [csi-volumes-6595-csi-hostpath-v0-csi-volumes-6595-vsc]
+I0124 12:19:10.265418       1 snapshot_controller_base.go:364] VolumeSnapshotClass Snapshotter [csi-hostpath-v0-csi-volumes-6595] Snapshot Controller snapshotterName [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:19:10.265423       1 snapshot_controller_base.go:215] passed checkAndUpdateSnapshotClass for snapshot "csi-volumes-6595/snapshot-2dtgh"
+I0124 12:19:10.265431       1 snapshot_controller_base.go:377] updateSnapshot "csi-volumes-6595/snapshot-2dtgh"
+I0124 12:19:10.265437       1 util.go:99] storeObjectUpdate updating snapshot "csi-volumes-6595/snapshot-2dtgh" with version 9213
+I0124 12:19:10.265451       1 snapshot_controller.go:140] synchonizing VolumeSnapshot[csi-volumes-6595/snapshot-2dtgh]: bound to: "snapcontent-40ce48c3-1fd2-11e9-bb60-fa163ec505d6", Completed: false
+I0124 12:19:10.265456       1 snapshot_controller.go:189] syncUnreadySnapshot csi-volumes-6595/snapshot-2dtgh
+I0124 12:19:10.265461       1 snapshot_controller.go:352] updateSnapshotStatusWithEvent[csi-volumes-6595/snapshot-2dtgh]
+I0124 12:19:10.265471       1 snapshot_controller.go:355] updateSnapshotStatusWithEvent[snapshot-2dtgh]: the same error &VolumeError{Time:2019-01-24 12:19:10 +0000 UTC,Message:VolumeSnapshotContent is missing,} is already set
+I0124 12:19:10.265489       1 snapshot_controller.go:199] synchronizing unready snapshot[csi-volumes-6595/snapshot-2dtgh]: snapshotcontent "snapcontent-40ce48c3-1fd2-11e9-bb60-fa163ec505d6" requested and not found, will try again next time
+E0124 12:19:10.265497       1 snapshot_controller_base.go:392] could not sync volume "csi-volumes-6595/snapshot-2dtgh": snapshot csi-volumes-6595/snapshot-2dtgh is bound to a non-existing content snapcontent-40ce48c3-1fd2-11e9-bb60-fa163ec505d6
+I0124 12:19:10.265863       1 event.go:221] Event(v1.ObjectReference{Kind:"VolumeSnapshot", Namespace:"csi-volumes-6595", Name:"snapshot-2dtgh", UID:"40ce48c3-1fd2-11e9-bb60-fa163ec505d6", APIVersion:"snapshot.storage.k8s.io/v1alpha1", ResourceVersion:"9213", FieldPath:""}): type: 'Warning' reason: 'SnapshotContentMissing' VolumeSnapshotContent is missing
+I0124 12:20:09.176511       1 reflector.go:215] github.com/kubernetes-csi/external-snapshotter/pkg/client/informers/externalversions/factory.go:117: forcing resync
+I0124 12:20:09.176613       1 snapshot_controller_base.go:169] enqueued "csi-volumes-3906/snapshot-26lrt" for sync
+I0124 12:20:09.176631       1 snapshot_controller_base.go:169] enqueued "csi-volumes-6507/snapshot-fbzm7" for sync
+I0124 12:20:09.176645       1 snapshot_controller_base.go:201] snapshotWorker[csi-volumes-3906/snapshot-26lrt]
+I0124 12:20:09.176654       1 snapshot_controller_base.go:204] snapshotWorker: snapshot namespace [csi-volumes-3906] name [snapshot-26lrt]
+I0124 12:20:09.176661       1 snapshot_controller_base.go:347] checkAndUpdateSnapshotClass [snapshot-26lrt]: VolumeSnapshotClassName [csi-volumes-3906-csi-hostpath-v0-csi-volumes-3906-vsc]
+I0124 12:20:09.176673       1 snapshot_controller.go:769] getSnapshotClass: VolumeSnapshotClassName [csi-volumes-3906-csi-hostpath-v0-csi-volumes-3906-vsc]
+I0124 12:20:09.176680       1 snapshot_controller_base.go:364] VolumeSnapshotClass Snapshotter [csi-hostpath-v0-csi-volumes-3906] Snapshot Controller snapshotterName [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:20:09.176692       1 snapshot_controller_base.go:366] Skipping VolumeSnapshot csi-volumes-3906/snapshot-26lrt for snapshotter [csi-hostpath-v0-csi-volumes-3906] in VolumeSnapshotClass because it does not match with the snapshotter for controller [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:20:09.176702       1 snapshot_controller_base.go:201] snapshotWorker[csi-volumes-6507/snapshot-fbzm7]
+I0124 12:20:09.176719       1 snapshot_controller_base.go:204] snapshotWorker: snapshot namespace [csi-volumes-6507] name [snapshot-fbzm7]
+I0124 12:20:09.176725       1 snapshot_controller_base.go:347] checkAndUpdateSnapshotClass [snapshot-fbzm7]: VolumeSnapshotClassName [csi-volumes-6507-csi-hostpath-csi-volumes-6507-vsc]
+I0124 12:20:09.176739       1 snapshot_controller.go:769] getSnapshotClass: VolumeSnapshotClassName [csi-volumes-6507-csi-hostpath-csi-volumes-6507-vsc]
+I0124 12:20:09.176745       1 snapshot_controller_base.go:364] VolumeSnapshotClass Snapshotter [csi-hostpath-csi-volumes-6507] Snapshot Controller snapshotterName [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:20:09.176750       1 snapshot_controller_base.go:366] Skipping VolumeSnapshot csi-volumes-6507/snapshot-fbzm7 for snapshotter [csi-hostpath-csi-volumes-6507] in VolumeSnapshotClass because it does not match with the snapshotter for controller [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:20:09.176769       1 snapshot_controller_base.go:169] enqueued "default/new-snapshot-demo" for sync
+I0124 12:20:09.176777       1 snapshot_controller_base.go:169] enqueued "csi-volumes-8952/snapshot-h5s4g" for sync
+I0124 12:20:09.176787       1 snapshot_controller_base.go:201] snapshotWorker[default/new-snapshot-demo]
+I0124 12:20:09.176791       1 snapshot_controller_base.go:204] snapshotWorker: snapshot namespace [default] name [new-snapshot-demo]
+I0124 12:20:09.176799       1 snapshot_controller_base.go:201] snapshotWorker[csi-volumes-8952/snapshot-h5s4g]
+I0124 12:20:09.176808       1 snapshot_controller_base.go:204] snapshotWorker: snapshot namespace [csi-volumes-8952] name [snapshot-h5s4g]
+I0124 12:20:09.176815       1 snapshot_controller_base.go:347] checkAndUpdateSnapshotClass [snapshot-h5s4g]: VolumeSnapshotClassName [csi-volumes-8952-csi-hostpath-csi-volumes-8952-vsc]
+I0124 12:20:09.176819       1 snapshot_controller_base.go:347] checkAndUpdateSnapshotClass [new-snapshot-demo]: VolumeSnapshotClassName [csi-hostpath-snapclass]
+I0124 12:20:09.176837       1 snapshot_controller_base.go:169] enqueued "csi-volumes-6595/snapshot-2dtgh" for sync
+I0124 12:20:09.176842       1 snapshot_controller.go:769] getSnapshotClass: VolumeSnapshotClassName [csi-hostpath-snapclass]
+I0124 12:20:09.176854       1 snapshot_controller_base.go:201] snapshotWorker[csi-volumes-6595/snapshot-2dtgh]
+I0124 12:20:09.176860       1 snapshot_controller_base.go:204] snapshotWorker: snapshot namespace [csi-volumes-6595] name [snapshot-2dtgh]
+I0124 12:20:09.176867       1 snapshot_controller_base.go:347] checkAndUpdateSnapshotClass [snapshot-2dtgh]: VolumeSnapshotClassName [csi-volumes-6595-csi-hostpath-v0-csi-volumes-6595-vsc]
+I0124 12:20:09.176857       1 snapshot_controller_base.go:364] VolumeSnapshotClass Snapshotter [csi-hostpath] Snapshot Controller snapshotterName [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:20:09.176877       1 snapshot_controller.go:769] getSnapshotClass: VolumeSnapshotClassName [csi-volumes-6595-csi-hostpath-v0-csi-volumes-6595-vsc]
+I0124 12:20:09.176882       1 snapshot_controller_base.go:366] Skipping VolumeSnapshot default/new-snapshot-demo for snapshotter [csi-hostpath] in VolumeSnapshotClass because it does not match with the snapshotter for controller [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:20:09.176884       1 snapshot_controller_base.go:364] VolumeSnapshotClass Snapshotter [csi-hostpath-v0-csi-volumes-6595] Snapshot Controller snapshotterName [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:20:09.176890       1 snapshot_controller_base.go:215] passed checkAndUpdateSnapshotClass for snapshot "csi-volumes-6595/snapshot-2dtgh"
+I0124 12:20:09.176903       1 snapshot_controller_base.go:377] updateSnapshot "csi-volumes-6595/snapshot-2dtgh"
+I0124 12:20:09.176936       1 util.go:99] storeObjectUpdate updating snapshot "csi-volumes-6595/snapshot-2dtgh" with version 9213
+I0124 12:20:09.176953       1 snapshot_controller.go:140] synchonizing VolumeSnapshot[csi-volumes-6595/snapshot-2dtgh]: bound to: "snapcontent-40ce48c3-1fd2-11e9-bb60-fa163ec505d6", Completed: false
+I0124 12:20:09.176965       1 snapshot_controller.go:189] syncUnreadySnapshot csi-volumes-6595/snapshot-2dtgh
+I0124 12:20:09.176971       1 snapshot_controller.go:352] updateSnapshotStatusWithEvent[csi-volumes-6595/snapshot-2dtgh]
+I0124 12:20:09.176977       1 snapshot_controller.go:355] updateSnapshotStatusWithEvent[snapshot-2dtgh]: the same error &VolumeError{Time:2019-01-24 12:19:10 +0000 UTC,Message:VolumeSnapshotContent is missing,} is already set
+I0124 12:20:09.176999       1 snapshot_controller.go:199] synchronizing unready snapshot[csi-volumes-6595/snapshot-2dtgh]: snapshotcontent "snapcontent-40ce48c3-1fd2-11e9-bb60-fa163ec505d6" requested and not found, will try again next time
+E0124 12:20:09.177009       1 snapshot_controller_base.go:392] could not sync volume "csi-volumes-6595/snapshot-2dtgh": snapshot csi-volumes-6595/snapshot-2dtgh is bound to a non-existing content snapcontent-40ce48c3-1fd2-11e9-bb60-fa163ec505d6
+I0124 12:20:09.176829       1 snapshot_controller.go:769] getSnapshotClass: VolumeSnapshotClassName [csi-volumes-8952-csi-hostpath-csi-volumes-8952-vsc]
+I0124 12:20:09.177022       1 snapshot_controller_base.go:364] VolumeSnapshotClass Snapshotter [csi-hostpath-csi-volumes-8952] Snapshot Controller snapshotterName [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:20:09.177027       1 snapshot_controller_base.go:366] Skipping VolumeSnapshot csi-volumes-8952/snapshot-h5s4g for snapshotter [csi-hostpath-csi-volumes-8952] in VolumeSnapshotClass because it does not match with the snapshotter for controller [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:20:09.179435       1 reflector.go:215] github.com/kubernetes-csi/external-snapshotter/pkg/client/informers/externalversions/factory.go:117: forcing resync
+I0124 12:20:09.179512       1 snapshot_controller_base.go:186] enqueued "snapcontent-2768c340-1fa4-11e9-bb60-fa163ec505d6" for sync
+I0124 12:20:09.179569       1 snapshot_controller_base.go:186] enqueued "snapcontent-43ab615c-1fb4-11e9-bb60-fa163ec505d6" for sync
+I0124 12:20:09.179589       1 snapshot_controller_base.go:266] contentWorker[snapcontent-2768c340-1fa4-11e9-bb60-fa163ec505d6]
+I0124 12:20:09.179598       1 snapshot_controller_base.go:266] contentWorker[snapcontent-43ab615c-1fb4-11e9-bb60-fa163ec505d6]
+I0124 12:20:09.179612       1 snapshot_controller_base.go:186] enqueued "snapcontent-ca4a95f4-1fb1-11e9-bb60-fa163ec505d6" for sync
+I0124 12:20:09.179683       1 snapshot_controller_base.go:186] enqueued "snapcontent-7897df85-1fb3-11e9-bb60-fa163ec505d6" for sync
+I0124 12:20:09.179701       1 snapshot_controller_base.go:266] contentWorker[snapcontent-ca4a95f4-1fb1-11e9-bb60-fa163ec505d6]
+I0124 12:20:09.179708       1 snapshot_controller_base.go:266] contentWorker[snapcontent-7897df85-1fb3-11e9-bb60-fa163ec505d6]
+I0124 12:20:09.179715       1 snapshot_controller_base.go:186] enqueued "snapcontent-6b7861ed-1fb4-11e9-bb60-fa163ec505d6" for sync
+I0124 12:20:09.179723       1 snapshot_controller_base.go:186] enqueued "snapcontent-40ce48c3-1fd2-11e9-bb60-fa163ec505d6" for sync
+I0124 12:20:09.179732       1 snapshot_controller_base.go:266] contentWorker[snapcontent-6b7861ed-1fb4-11e9-bb60-fa163ec505d6]
+I0124 12:20:09.179738       1 snapshot_controller_base.go:266] contentWorker[snapcontent-40ce48c3-1fd2-11e9-bb60-fa163ec505d6]
+I0124 12:20:09.179745       1 snapshot_controller_base.go:186] enqueued "snapcontent-3ab10396-1fa4-11e9-bb60-fa163ec505d6" for sync
+I0124 12:20:09.179752       1 snapshot_controller_base.go:186] enqueued "snapcontent-bd6a3eb6-1fa6-11e9-bb60-fa163ec505d6" for sync
+I0124 12:20:09.179761       1 snapshot_controller_base.go:266] contentWorker[snapcontent-3ab10396-1fa4-11e9-bb60-fa163ec505d6]
+I0124 12:20:09.179794       1 snapshot_controller_base.go:266] contentWorker[snapcontent-bd6a3eb6-1fa6-11e9-bb60-fa163ec505d6]
+I0124 12:20:09.179825       1 snapshot_controller_base.go:186] enqueued "snapcontent-6ff72b35-1fae-11e9-bb60-fa163ec505d6" for sync
+I0124 12:20:09.179856       1 snapshot_controller_base.go:186] enqueued "snapcontent-2059f527-1fd2-11e9-bb60-fa163ec505d6" for sync
+I0124 12:20:09.179865       1 snapshot_controller_base.go:266] contentWorker[snapcontent-6ff72b35-1fae-11e9-bb60-fa163ec505d6]
+I0124 12:20:09.179876       1 snapshot_controller_base.go:266] contentWorker[snapcontent-2059f527-1fd2-11e9-bb60-fa163ec505d6]
+I0124 12:20:09.179884       1 snapshot_controller_base.go:186] enqueued "snapcontent-c34c1320-1fa5-11e9-bb60-fa163ec505d6" for sync
+I0124 12:20:09.179895       1 snapshot_controller_base.go:266] contentWorker[snapcontent-c34c1320-1fa5-11e9-bb60-fa163ec505d6]
+I0124 12:21:09.176755       1 reflector.go:215] github.com/kubernetes-csi/external-snapshotter/pkg/client/informers/externalversions/factory.go:117: forcing resync
+I0124 12:21:09.176860       1 snapshot_controller_base.go:169] enqueued "csi-volumes-3906/snapshot-26lrt" for sync
+I0124 12:21:09.176877       1 snapshot_controller_base.go:169] enqueued "csi-volumes-6507/snapshot-fbzm7" for sync
+I0124 12:21:09.176892       1 snapshot_controller_base.go:201] snapshotWorker[csi-volumes-3906/snapshot-26lrt]
+I0124 12:21:09.176905       1 snapshot_controller_base.go:204] snapshotWorker: snapshot namespace [csi-volumes-3906] name [snapshot-26lrt]
+I0124 12:21:09.176913       1 snapshot_controller_base.go:347] checkAndUpdateSnapshotClass [snapshot-26lrt]: VolumeSnapshotClassName [csi-volumes-3906-csi-hostpath-v0-csi-volumes-3906-vsc]
+I0124 12:21:09.176918       1 snapshot_controller.go:769] getSnapshotClass: VolumeSnapshotClassName [csi-volumes-3906-csi-hostpath-v0-csi-volumes-3906-vsc]
+I0124 12:21:09.176925       1 snapshot_controller_base.go:364] VolumeSnapshotClass Snapshotter [csi-hostpath-v0-csi-volumes-3906] Snapshot Controller snapshotterName [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:21:09.176940       1 snapshot_controller_base.go:366] Skipping VolumeSnapshot csi-volumes-3906/snapshot-26lrt for snapshotter [csi-hostpath-v0-csi-volumes-3906] in VolumeSnapshotClass because it does not match with the snapshotter for controller [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:21:09.176949       1 snapshot_controller_base.go:201] snapshotWorker[csi-volumes-6507/snapshot-fbzm7]
+I0124 12:21:09.176960       1 snapshot_controller_base.go:204] snapshotWorker: snapshot namespace [csi-volumes-6507] name [snapshot-fbzm7]
+I0124 12:21:09.176953       1 snapshot_controller_base.go:169] enqueued "default/new-snapshot-demo" for sync
+I0124 12:21:09.176992       1 snapshot_controller_base.go:169] enqueued "csi-volumes-8952/snapshot-h5s4g" for sync
+I0124 12:21:09.177007       1 snapshot_controller_base.go:201] snapshotWorker[default/new-snapshot-demo]
+I0124 12:21:09.177014       1 snapshot_controller_base.go:204] snapshotWorker: snapshot namespace [default] name [new-snapshot-demo]
+I0124 12:21:09.177021       1 snapshot_controller_base.go:347] checkAndUpdateSnapshotClass [new-snapshot-demo]: VolumeSnapshotClassName [csi-hostpath-snapclass]
+I0124 12:21:09.177026       1 snapshot_controller.go:769] getSnapshotClass: VolumeSnapshotClassName [csi-hostpath-snapclass]
+I0124 12:21:09.177034       1 snapshot_controller_base.go:364] VolumeSnapshotClass Snapshotter [csi-hostpath] Snapshot Controller snapshotterName [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:21:09.177041       1 snapshot_controller_base.go:366] Skipping VolumeSnapshot default/new-snapshot-demo for snapshotter [csi-hostpath] in VolumeSnapshotClass because it does not match with the snapshotter for controller [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:21:09.177050       1 snapshot_controller_base.go:201] snapshotWorker[csi-volumes-8952/snapshot-h5s4g]
+I0124 12:21:09.177056       1 snapshot_controller_base.go:204] snapshotWorker: snapshot namespace [csi-volumes-8952] name [snapshot-h5s4g]
+I0124 12:21:09.177061       1 snapshot_controller_base.go:347] checkAndUpdateSnapshotClass [snapshot-h5s4g]: VolumeSnapshotClassName [csi-volumes-8952-csi-hostpath-csi-volumes-8952-vsc]
+I0124 12:21:09.177066       1 snapshot_controller.go:769] getSnapshotClass: VolumeSnapshotClassName [csi-volumes-8952-csi-hostpath-csi-volumes-8952-vsc]
+I0124 12:21:09.177071       1 snapshot_controller_base.go:364] VolumeSnapshotClass Snapshotter [csi-hostpath-csi-volumes-8952] Snapshot Controller snapshotterName [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:21:09.177076       1 snapshot_controller_base.go:366] Skipping VolumeSnapshot csi-volumes-8952/snapshot-h5s4g for snapshotter [csi-hostpath-csi-volumes-8952] in VolumeSnapshotClass because it does not match with the snapshotter for controller [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:21:09.176966       1 snapshot_controller_base.go:347] checkAndUpdateSnapshotClass [snapshot-fbzm7]: VolumeSnapshotClassName [csi-volumes-6507-csi-hostpath-csi-volumes-6507-vsc]
+I0124 12:21:09.177085       1 snapshot_controller.go:769] getSnapshotClass: VolumeSnapshotClassName [csi-volumes-6507-csi-hostpath-csi-volumes-6507-vsc]
+I0124 12:21:09.177090       1 snapshot_controller_base.go:364] VolumeSnapshotClass Snapshotter [csi-hostpath-csi-volumes-6507] Snapshot Controller snapshotterName [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:21:09.177096       1 snapshot_controller_base.go:366] Skipping VolumeSnapshot csi-volumes-6507/snapshot-fbzm7 for snapshotter [csi-hostpath-csi-volumes-6507] in VolumeSnapshotClass because it does not match with the snapshotter for controller [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:21:09.177105       1 snapshot_controller_base.go:169] enqueued "csi-volumes-6595/snapshot-2dtgh" for sync
+I0124 12:21:09.177115       1 snapshot_controller_base.go:201] snapshotWorker[csi-volumes-6595/snapshot-2dtgh]
+I0124 12:21:09.177119       1 snapshot_controller_base.go:204] snapshotWorker: snapshot namespace [csi-volumes-6595] name [snapshot-2dtgh]
+I0124 12:21:09.177124       1 snapshot_controller_base.go:347] checkAndUpdateSnapshotClass [snapshot-2dtgh]: VolumeSnapshotClassName [csi-volumes-6595-csi-hostpath-v0-csi-volumes-6595-vsc]
+I0124 12:21:09.177129       1 snapshot_controller.go:769] getSnapshotClass: VolumeSnapshotClassName [csi-volumes-6595-csi-hostpath-v0-csi-volumes-6595-vsc]
+I0124 12:21:09.177134       1 snapshot_controller_base.go:364] VolumeSnapshotClass Snapshotter [csi-hostpath-v0-csi-volumes-6595] Snapshot Controller snapshotterName [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:21:09.177139       1 snapshot_controller_base.go:215] passed checkAndUpdateSnapshotClass for snapshot "csi-volumes-6595/snapshot-2dtgh"
+I0124 12:21:09.177146       1 snapshot_controller_base.go:377] updateSnapshot "csi-volumes-6595/snapshot-2dtgh"
+I0124 12:21:09.177182       1 util.go:99] storeObjectUpdate updating snapshot "csi-volumes-6595/snapshot-2dtgh" with version 9213
+I0124 12:21:09.177194       1 snapshot_controller.go:140] synchonizing VolumeSnapshot[csi-volumes-6595/snapshot-2dtgh]: bound to: "snapcontent-40ce48c3-1fd2-11e9-bb60-fa163ec505d6", Completed: false
+I0124 12:21:09.177199       1 snapshot_controller.go:189] syncUnreadySnapshot csi-volumes-6595/snapshot-2dtgh
+I0124 12:21:09.177205       1 snapshot_controller.go:352] updateSnapshotStatusWithEvent[csi-volumes-6595/snapshot-2dtgh]
+I0124 12:21:09.177210       1 snapshot_controller.go:355] updateSnapshotStatusWithEvent[snapshot-2dtgh]: the same error &VolumeError{Time:2019-01-24 12:19:10 +0000 UTC,Message:VolumeSnapshotContent is missing,} is already set
+I0124 12:21:09.177229       1 snapshot_controller.go:199] synchronizing unready snapshot[csi-volumes-6595/snapshot-2dtgh]: snapshotcontent "snapcontent-40ce48c3-1fd2-11e9-bb60-fa163ec505d6" requested and not found, will try again next time
+E0124 12:21:09.177239       1 snapshot_controller_base.go:392] could not sync volume "csi-volumes-6595/snapshot-2dtgh": snapshot csi-volumes-6595/snapshot-2dtgh is bound to a non-existing content snapcontent-40ce48c3-1fd2-11e9-bb60-fa163ec505d6
+I0124 12:21:09.179663       1 reflector.go:215] github.com/kubernetes-csi/external-snapshotter/pkg/client/informers/externalversions/factory.go:117: forcing resync
+I0124 12:21:09.179724       1 snapshot_controller_base.go:186] enqueued "snapcontent-2768c340-1fa4-11e9-bb60-fa163ec505d6" for sync
+I0124 12:21:09.179738       1 snapshot_controller_base.go:186] enqueued "snapcontent-43ab615c-1fb4-11e9-bb60-fa163ec505d6" for sync
+I0124 12:21:09.179749       1 snapshot_controller_base.go:266] contentWorker[snapcontent-2768c340-1fa4-11e9-bb60-fa163ec505d6]
+I0124 12:21:09.179757       1 snapshot_controller_base.go:266] contentWorker[snapcontent-43ab615c-1fb4-11e9-bb60-fa163ec505d6]
+I0124 12:21:09.179782       1 snapshot_controller_base.go:186] enqueued "snapcontent-ca4a95f4-1fb1-11e9-bb60-fa163ec505d6" for sync
+I0124 12:21:09.179790       1 snapshot_controller_base.go:266] contentWorker[snapcontent-ca4a95f4-1fb1-11e9-bb60-fa163ec505d6]
+I0124 12:21:09.179802       1 snapshot_controller_base.go:186] enqueued "snapcontent-7897df85-1fb3-11e9-bb60-fa163ec505d6" for sync
+I0124 12:21:09.179808       1 snapshot_controller_base.go:186] enqueued "snapcontent-6b7861ed-1fb4-11e9-bb60-fa163ec505d6" for sync
+I0124 12:21:09.179816       1 snapshot_controller_base.go:266] contentWorker[snapcontent-7897df85-1fb3-11e9-bb60-fa163ec505d6]
+I0124 12:21:09.179822       1 snapshot_controller_base.go:266] contentWorker[snapcontent-6b7861ed-1fb4-11e9-bb60-fa163ec505d6]
+I0124 12:21:09.179832       1 snapshot_controller_base.go:186] enqueued "snapcontent-40ce48c3-1fd2-11e9-bb60-fa163ec505d6" for sync
+I0124 12:21:09.179840       1 snapshot_controller_base.go:266] contentWorker[snapcontent-40ce48c3-1fd2-11e9-bb60-fa163ec505d6]
+I0124 12:21:09.179859       1 snapshot_controller_base.go:186] enqueued "snapcontent-3ab10396-1fa4-11e9-bb60-fa163ec505d6" for sync
+I0124 12:21:09.179865       1 snapshot_controller_base.go:186] enqueued "snapcontent-bd6a3eb6-1fa6-11e9-bb60-fa163ec505d6" for sync
+I0124 12:21:09.179874       1 snapshot_controller_base.go:266] contentWorker[snapcontent-3ab10396-1fa4-11e9-bb60-fa163ec505d6]
+I0124 12:21:09.179881       1 snapshot_controller_base.go:266] contentWorker[snapcontent-bd6a3eb6-1fa6-11e9-bb60-fa163ec505d6]
+I0124 12:21:09.179887       1 snapshot_controller_base.go:186] enqueued "snapcontent-6ff72b35-1fae-11e9-bb60-fa163ec505d6" for sync
+I0124 12:21:09.179893       1 snapshot_controller_base.go:186] enqueued "snapcontent-2059f527-1fd2-11e9-bb60-fa163ec505d6" for sync
+I0124 12:21:09.179902       1 snapshot_controller_base.go:266] contentWorker[snapcontent-6ff72b35-1fae-11e9-bb60-fa163ec505d6]
+I0124 12:21:09.179908       1 snapshot_controller_base.go:266] contentWorker[snapcontent-2059f527-1fd2-11e9-bb60-fa163ec505d6]
+I0124 12:21:09.179915       1 snapshot_controller_base.go:186] enqueued "snapcontent-c34c1320-1fa5-11e9-bb60-fa163ec505d6" for sync
+I0124 12:21:09.179922       1 snapshot_controller_base.go:266] contentWorker[snapcontent-c34c1320-1fa5-11e9-bb60-fa163ec505d6]
+I0124 12:22:09.177023       1 reflector.go:215] github.com/kubernetes-csi/external-snapshotter/pkg/client/informers/externalversions/factory.go:117: forcing resync
+I0124 12:22:09.177123       1 snapshot_controller_base.go:169] enqueued "csi-volumes-3906/snapshot-26lrt" for sync
+I0124 12:22:09.177139       1 snapshot_controller_base.go:169] enqueued "csi-volumes-6507/snapshot-fbzm7" for sync
+I0124 12:22:09.177152       1 snapshot_controller_base.go:201] snapshotWorker[csi-volumes-3906/snapshot-26lrt]
+I0124 12:22:09.177158       1 snapshot_controller_base.go:204] snapshotWorker: snapshot namespace [csi-volumes-3906] name [snapshot-26lrt]
+I0124 12:22:09.177166       1 snapshot_controller_base.go:347] checkAndUpdateSnapshotClass [snapshot-26lrt]: VolumeSnapshotClassName [csi-volumes-3906-csi-hostpath-v0-csi-volumes-3906-vsc]
+I0124 12:22:09.177171       1 snapshot_controller.go:769] getSnapshotClass: VolumeSnapshotClassName [csi-volumes-3906-csi-hostpath-v0-csi-volumes-3906-vsc]
+I0124 12:22:09.177186       1 snapshot_controller_base.go:364] VolumeSnapshotClass Snapshotter [csi-hostpath-v0-csi-volumes-3906] Snapshot Controller snapshotterName [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:22:09.177193       1 snapshot_controller_base.go:366] Skipping VolumeSnapshot csi-volumes-3906/snapshot-26lrt for snapshotter [csi-hostpath-v0-csi-volumes-3906] in VolumeSnapshotClass because it does not match with the snapshotter for controller [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:22:09.177209       1 snapshot_controller_base.go:201] snapshotWorker[csi-volumes-6507/snapshot-fbzm7]
+I0124 12:22:09.177222       1 snapshot_controller_base.go:204] snapshotWorker: snapshot namespace [csi-volumes-6507] name [snapshot-fbzm7]
+I0124 12:22:09.177227       1 snapshot_controller_base.go:347] checkAndUpdateSnapshotClass [snapshot-fbzm7]: VolumeSnapshotClassName [csi-volumes-6507-csi-hostpath-csi-volumes-6507-vsc]
+I0124 12:22:09.177255       1 snapshot_controller.go:769] getSnapshotClass: VolumeSnapshotClassName [csi-volumes-6507-csi-hostpath-csi-volumes-6507-vsc]
+I0124 12:22:09.177260       1 snapshot_controller_base.go:364] VolumeSnapshotClass Snapshotter [csi-hostpath-csi-volumes-6507] Snapshot Controller snapshotterName [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:22:09.177266       1 snapshot_controller_base.go:366] Skipping VolumeSnapshot csi-volumes-6507/snapshot-fbzm7 for snapshotter [csi-hostpath-csi-volumes-6507] in VolumeSnapshotClass because it does not match with the snapshotter for controller [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:22:09.177281       1 snapshot_controller_base.go:169] enqueued "default/new-snapshot-demo" for sync
+I0124 12:22:09.177291       1 snapshot_controller_base.go:201] snapshotWorker[default/new-snapshot-demo]
+I0124 12:22:09.177300       1 snapshot_controller_base.go:204] snapshotWorker: snapshot namespace [default] name [new-snapshot-demo]
+I0124 12:22:09.177305       1 snapshot_controller_base.go:347] checkAndUpdateSnapshotClass [new-snapshot-demo]: VolumeSnapshotClassName [csi-hostpath-snapclass]
+I0124 12:22:09.177309       1 snapshot_controller.go:769] getSnapshotClass: VolumeSnapshotClassName [csi-hostpath-snapclass]
+I0124 12:22:09.177314       1 snapshot_controller_base.go:364] VolumeSnapshotClass Snapshotter [csi-hostpath] Snapshot Controller snapshotterName [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:22:09.177320       1 snapshot_controller_base.go:366] Skipping VolumeSnapshot default/new-snapshot-demo for snapshotter [csi-hostpath] in VolumeSnapshotClass because it does not match with the snapshotter for controller [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:22:09.177335       1 snapshot_controller_base.go:169] enqueued "csi-volumes-8952/snapshot-h5s4g" for sync
+I0124 12:22:09.177351       1 snapshot_controller_base.go:169] enqueued "csi-volumes-6595/snapshot-2dtgh" for sync
+I0124 12:22:09.177362       1 snapshot_controller_base.go:201] snapshotWorker[csi-volumes-8952/snapshot-h5s4g]
+I0124 12:22:09.177367       1 snapshot_controller_base.go:204] snapshotWorker: snapshot namespace [csi-volumes-8952] name [snapshot-h5s4g]
+I0124 12:22:09.177378       1 snapshot_controller_base.go:347] checkAndUpdateSnapshotClass [snapshot-h5s4g]: VolumeSnapshotClassName [csi-volumes-8952-csi-hostpath-csi-volumes-8952-vsc]
+I0124 12:22:09.177383       1 snapshot_controller.go:769] getSnapshotClass: VolumeSnapshotClassName [csi-volumes-8952-csi-hostpath-csi-volumes-8952-vsc]
+I0124 12:22:09.177388       1 snapshot_controller_base.go:364] VolumeSnapshotClass Snapshotter [csi-hostpath-csi-volumes-8952] Snapshot Controller snapshotterName [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:22:09.177393       1 snapshot_controller_base.go:366] Skipping VolumeSnapshot csi-volumes-8952/snapshot-h5s4g for snapshotter [csi-hostpath-csi-volumes-8952] in VolumeSnapshotClass because it does not match with the snapshotter for controller [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:22:09.177401       1 snapshot_controller_base.go:201] snapshotWorker[csi-volumes-6595/snapshot-2dtgh]
+I0124 12:22:09.177411       1 snapshot_controller_base.go:204] snapshotWorker: snapshot namespace [csi-volumes-6595] name [snapshot-2dtgh]
+I0124 12:22:09.177416       1 snapshot_controller_base.go:347] checkAndUpdateSnapshotClass [snapshot-2dtgh]: VolumeSnapshotClassName [csi-volumes-6595-csi-hostpath-v0-csi-volumes-6595-vsc]
+I0124 12:22:09.177421       1 snapshot_controller.go:769] getSnapshotClass: VolumeSnapshotClassName [csi-volumes-6595-csi-hostpath-v0-csi-volumes-6595-vsc]
+I0124 12:22:09.177426       1 snapshot_controller_base.go:364] VolumeSnapshotClass Snapshotter [csi-hostpath-v0-csi-volumes-6595] Snapshot Controller snapshotterName [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:22:09.177431       1 snapshot_controller_base.go:215] passed checkAndUpdateSnapshotClass for snapshot "csi-volumes-6595/snapshot-2dtgh"
+I0124 12:22:09.177437       1 snapshot_controller_base.go:377] updateSnapshot "csi-volumes-6595/snapshot-2dtgh"
+I0124 12:22:09.177466       1 util.go:99] storeObjectUpdate updating snapshot "csi-volumes-6595/snapshot-2dtgh" with version 9213
+I0124 12:22:09.177483       1 snapshot_controller.go:140] synchonizing VolumeSnapshot[csi-volumes-6595/snapshot-2dtgh]: bound to: "snapcontent-40ce48c3-1fd2-11e9-bb60-fa163ec505d6", Completed: false
+I0124 12:22:09.177491       1 snapshot_controller.go:189] syncUnreadySnapshot csi-volumes-6595/snapshot-2dtgh
+I0124 12:22:09.177497       1 snapshot_controller.go:352] updateSnapshotStatusWithEvent[csi-volumes-6595/snapshot-2dtgh]
+I0124 12:22:09.177510       1 snapshot_controller.go:355] updateSnapshotStatusWithEvent[snapshot-2dtgh]: the same error &VolumeError{Time:2019-01-24 12:19:10 +0000 UTC,Message:VolumeSnapshotContent is missing,} is already set
+I0124 12:22:09.177533       1 snapshot_controller.go:199] synchronizing unready snapshot[csi-volumes-6595/snapshot-2dtgh]: snapshotcontent "snapcontent-40ce48c3-1fd2-11e9-bb60-fa163ec505d6" requested and not found, will try again next time
+E0124 12:22:09.177549       1 snapshot_controller_base.go:392] could not sync volume "csi-volumes-6595/snapshot-2dtgh": snapshot csi-volumes-6595/snapshot-2dtgh is bound to a non-existing content snapcontent-40ce48c3-1fd2-11e9-bb60-fa163ec505d6
+I0124 12:22:09.179893       1 reflector.go:215] github.com/kubernetes-csi/external-snapshotter/pkg/client/informers/externalversions/factory.go:117: forcing resync
+I0124 12:22:09.179998       1 snapshot_controller_base.go:186] enqueued "snapcontent-43ab615c-1fb4-11e9-bb60-fa163ec505d6" for sync
+I0124 12:22:09.180018       1 snapshot_controller_base.go:186] enqueued "snapcontent-ca4a95f4-1fb1-11e9-bb60-fa163ec505d6" for sync
+I0124 12:22:09.180031       1 snapshot_controller_base.go:266] contentWorker[snapcontent-43ab615c-1fb4-11e9-bb60-fa163ec505d6]
+I0124 12:22:09.180040       1 snapshot_controller_base.go:266] contentWorker[snapcontent-ca4a95f4-1fb1-11e9-bb60-fa163ec505d6]
+I0124 12:22:09.180053       1 snapshot_controller_base.go:186] enqueued "snapcontent-7897df85-1fb3-11e9-bb60-fa163ec505d6" for sync
+I0124 12:22:09.180060       1 snapshot_controller_base.go:186] enqueued "snapcontent-6b7861ed-1fb4-11e9-bb60-fa163ec505d6" for sync
+I0124 12:22:09.180074       1 snapshot_controller_base.go:266] contentWorker[snapcontent-7897df85-1fb3-11e9-bb60-fa163ec505d6]
+I0124 12:22:09.180080       1 snapshot_controller_base.go:266] contentWorker[snapcontent-6b7861ed-1fb4-11e9-bb60-fa163ec505d6]
+I0124 12:22:09.180091       1 snapshot_controller_base.go:186] enqueued "snapcontent-40ce48c3-1fd2-11e9-bb60-fa163ec505d6" for sync
+I0124 12:22:09.180104       1 snapshot_controller_base.go:186] enqueued "snapcontent-2768c340-1fa4-11e9-bb60-fa163ec505d6" for sync
+I0124 12:22:09.180113       1 snapshot_controller_base.go:266] contentWorker[snapcontent-40ce48c3-1fd2-11e9-bb60-fa163ec505d6]
+I0124 12:22:09.180124       1 snapshot_controller_base.go:266] contentWorker[snapcontent-2768c340-1fa4-11e9-bb60-fa163ec505d6]
+I0124 12:22:09.180131       1 snapshot_controller_base.go:186] enqueued "snapcontent-bd6a3eb6-1fa6-11e9-bb60-fa163ec505d6" for sync
+I0124 12:22:09.180138       1 snapshot_controller_base.go:186] enqueued "snapcontent-6ff72b35-1fae-11e9-bb60-fa163ec505d6" for sync
+I0124 12:22:09.180150       1 snapshot_controller_base.go:266] contentWorker[snapcontent-bd6a3eb6-1fa6-11e9-bb60-fa163ec505d6]
+I0124 12:22:09.180159       1 snapshot_controller_base.go:266] contentWorker[snapcontent-6ff72b35-1fae-11e9-bb60-fa163ec505d6]
+I0124 12:22:09.180167       1 snapshot_controller_base.go:186] enqueued "snapcontent-2059f527-1fd2-11e9-bb60-fa163ec505d6" for sync
+I0124 12:22:09.180174       1 snapshot_controller_base.go:186] enqueued "snapcontent-c34c1320-1fa5-11e9-bb60-fa163ec505d6" for sync
+I0124 12:22:09.180183       1 snapshot_controller_base.go:266] contentWorker[snapcontent-2059f527-1fd2-11e9-bb60-fa163ec505d6]
+I0124 12:22:09.180189       1 snapshot_controller_base.go:266] contentWorker[snapcontent-c34c1320-1fa5-11e9-bb60-fa163ec505d6]
+I0124 12:22:09.180195       1 snapshot_controller_base.go:186] enqueued "snapcontent-3ab10396-1fa4-11e9-bb60-fa163ec505d6" for sync
+I0124 12:22:09.180204       1 snapshot_controller_base.go:266] contentWorker[snapcontent-3ab10396-1fa4-11e9-bb60-fa163ec505d6]
+I0124 12:23:09.177293       1 reflector.go:215] github.com/kubernetes-csi/external-snapshotter/pkg/client/informers/externalversions/factory.go:117: forcing resync
+I0124 12:23:09.177387       1 snapshot_controller_base.go:169] enqueued "csi-volumes-8952/snapshot-h5s4g" for sync
+I0124 12:23:09.177403       1 snapshot_controller_base.go:169] enqueued "csi-volumes-6595/snapshot-2dtgh" for sync
+I0124 12:23:09.177415       1 snapshot_controller_base.go:201] snapshotWorker[csi-volumes-8952/snapshot-h5s4g]
+I0124 12:23:09.177422       1 snapshot_controller_base.go:204] snapshotWorker: snapshot namespace [csi-volumes-8952] name [snapshot-h5s4g]
+I0124 12:23:09.177429       1 snapshot_controller_base.go:347] checkAndUpdateSnapshotClass [snapshot-h5s4g]: VolumeSnapshotClassName [csi-volumes-8952-csi-hostpath-csi-volumes-8952-vsc]
+I0124 12:23:09.177436       1 snapshot_controller.go:769] getSnapshotClass: VolumeSnapshotClassName [csi-volumes-8952-csi-hostpath-csi-volumes-8952-vsc]
+I0124 12:23:09.177458       1 snapshot_controller_base.go:364] VolumeSnapshotClass Snapshotter [csi-hostpath-csi-volumes-8952] Snapshot Controller snapshotterName [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:23:09.177466       1 snapshot_controller_base.go:366] Skipping VolumeSnapshot csi-volumes-8952/snapshot-h5s4g for snapshotter [csi-hostpath-csi-volumes-8952] in VolumeSnapshotClass because it does not match with the snapshotter for controller [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:23:09.177444       1 snapshot_controller_base.go:201] snapshotWorker[csi-volumes-6595/snapshot-2dtgh]
+I0124 12:23:09.177504       1 snapshot_controller_base.go:204] snapshotWorker: snapshot namespace [csi-volumes-6595] name [snapshot-2dtgh]
+I0124 12:23:09.177510       1 snapshot_controller_base.go:347] checkAndUpdateSnapshotClass [snapshot-2dtgh]: VolumeSnapshotClassName [csi-volumes-6595-csi-hostpath-v0-csi-volumes-6595-vsc]
+I0124 12:23:09.177519       1 snapshot_controller.go:769] getSnapshotClass: VolumeSnapshotClassName [csi-volumes-6595-csi-hostpath-v0-csi-volumes-6595-vsc]
+I0124 12:23:09.177526       1 snapshot_controller_base.go:364] VolumeSnapshotClass Snapshotter [csi-hostpath-v0-csi-volumes-6595] Snapshot Controller snapshotterName [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:23:09.177536       1 snapshot_controller_base.go:215] passed checkAndUpdateSnapshotClass for snapshot "csi-volumes-6595/snapshot-2dtgh"
+I0124 12:23:09.177512       1 snapshot_controller_base.go:169] enqueued "csi-volumes-3906/snapshot-26lrt" for sync
+I0124 12:23:09.177576       1 snapshot_controller_base.go:169] enqueued "csi-volumes-6507/snapshot-fbzm7" for sync
+I0124 12:23:09.177605       1 snapshot_controller_base.go:201] snapshotWorker[csi-volumes-3906/snapshot-26lrt]
+I0124 12:23:09.177612       1 snapshot_controller_base.go:204] snapshotWorker: snapshot namespace [csi-volumes-3906] name [snapshot-26lrt]
+I0124 12:23:09.177623       1 snapshot_controller_base.go:347] checkAndUpdateSnapshotClass [snapshot-26lrt]: VolumeSnapshotClassName [csi-volumes-3906-csi-hostpath-v0-csi-volumes-3906-vsc]
+I0124 12:23:09.177631       1 snapshot_controller.go:769] getSnapshotClass: VolumeSnapshotClassName [csi-volumes-3906-csi-hostpath-v0-csi-volumes-3906-vsc]
+I0124 12:23:09.177638       1 snapshot_controller_base.go:364] VolumeSnapshotClass Snapshotter [csi-hostpath-v0-csi-volumes-3906] Snapshot Controller snapshotterName [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:23:09.177644       1 snapshot_controller_base.go:366] Skipping VolumeSnapshot csi-volumes-3906/snapshot-26lrt for snapshotter [csi-hostpath-v0-csi-volumes-3906] in VolumeSnapshotClass because it does not match with the snapshotter for controller [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:23:09.177653       1 snapshot_controller_base.go:201] snapshotWorker[csi-volumes-6507/snapshot-fbzm7]
+I0124 12:23:09.177659       1 snapshot_controller_base.go:204] snapshotWorker: snapshot namespace [csi-volumes-6507] name [snapshot-fbzm7]
+I0124 12:23:09.177664       1 snapshot_controller_base.go:347] checkAndUpdateSnapshotClass [snapshot-fbzm7]: VolumeSnapshotClassName [csi-volumes-6507-csi-hostpath-csi-volumes-6507-vsc]
+I0124 12:23:09.177669       1 snapshot_controller.go:769] getSnapshotClass: VolumeSnapshotClassName [csi-volumes-6507-csi-hostpath-csi-volumes-6507-vsc]
+I0124 12:23:09.177674       1 snapshot_controller_base.go:364] VolumeSnapshotClass Snapshotter [csi-hostpath-csi-volumes-6507] Snapshot Controller snapshotterName [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:23:09.177679       1 snapshot_controller_base.go:366] Skipping VolumeSnapshot csi-volumes-6507/snapshot-fbzm7 for snapshotter [csi-hostpath-csi-volumes-6507] in VolumeSnapshotClass because it does not match with the snapshotter for controller [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:23:09.177542       1 snapshot_controller_base.go:377] updateSnapshot "csi-volumes-6595/snapshot-2dtgh"
+I0124 12:23:09.177695       1 util.go:99] storeObjectUpdate updating snapshot "csi-volumes-6595/snapshot-2dtgh" with version 9213
+I0124 12:23:09.177706       1 snapshot_controller.go:140] synchonizing VolumeSnapshot[csi-volumes-6595/snapshot-2dtgh]: bound to: "snapcontent-40ce48c3-1fd2-11e9-bb60-fa163ec505d6", Completed: false
+I0124 12:23:09.177712       1 snapshot_controller.go:189] syncUnreadySnapshot csi-volumes-6595/snapshot-2dtgh
+I0124 12:23:09.177717       1 snapshot_controller.go:352] updateSnapshotStatusWithEvent[csi-volumes-6595/snapshot-2dtgh]
+I0124 12:23:09.177723       1 snapshot_controller.go:355] updateSnapshotStatusWithEvent[snapshot-2dtgh]: the same error &VolumeError{Time:2019-01-24 12:19:10 +0000 UTC,Message:VolumeSnapshotContent is missing,} is already set
+I0124 12:23:09.177741       1 snapshot_controller.go:199] synchronizing unready snapshot[csi-volumes-6595/snapshot-2dtgh]: snapshotcontent "snapcontent-40ce48c3-1fd2-11e9-bb60-fa163ec505d6" requested and not found, will try again next time
+E0124 12:23:09.177751       1 snapshot_controller_base.go:392] could not sync volume "csi-volumes-6595/snapshot-2dtgh": snapshot csi-volumes-6595/snapshot-2dtgh is bound to a non-existing content snapcontent-40ce48c3-1fd2-11e9-bb60-fa163ec505d6
+I0124 12:23:09.177762       1 snapshot_controller_base.go:169] enqueued "default/new-snapshot-demo" for sync
+I0124 12:23:09.177772       1 snapshot_controller_base.go:201] snapshotWorker[default/new-snapshot-demo]
+I0124 12:23:09.177776       1 snapshot_controller_base.go:204] snapshotWorker: snapshot namespace [default] name [new-snapshot-demo]
+I0124 12:23:09.177781       1 snapshot_controller_base.go:347] checkAndUpdateSnapshotClass [new-snapshot-demo]: VolumeSnapshotClassName [csi-hostpath-snapclass]
+I0124 12:23:09.177785       1 snapshot_controller.go:769] getSnapshotClass: VolumeSnapshotClassName [csi-hostpath-snapclass]
+I0124 12:23:09.177789       1 snapshot_controller_base.go:364] VolumeSnapshotClass Snapshotter [csi-hostpath] Snapshot Controller snapshotterName [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:23:09.177795       1 snapshot_controller_base.go:366] Skipping VolumeSnapshot default/new-snapshot-demo for snapshotter [csi-hostpath] in VolumeSnapshotClass because it does not match with the snapshotter for controller [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:23:09.180070       1 reflector.go:215] github.com/kubernetes-csi/external-snapshotter/pkg/client/informers/externalversions/factory.go:117: forcing resync
+I0124 12:23:09.180153       1 snapshot_controller_base.go:186] enqueued "snapcontent-6b7861ed-1fb4-11e9-bb60-fa163ec505d6" for sync
+I0124 12:23:09.180168       1 snapshot_controller_base.go:186] enqueued "snapcontent-40ce48c3-1fd2-11e9-bb60-fa163ec505d6" for sync
+I0124 12:23:09.180187       1 snapshot_controller_base.go:266] contentWorker[snapcontent-6b7861ed-1fb4-11e9-bb60-fa163ec505d6]
+I0124 12:23:09.180196       1 snapshot_controller_base.go:266] contentWorker[snapcontent-40ce48c3-1fd2-11e9-bb60-fa163ec505d6]
+I0124 12:23:09.180212       1 snapshot_controller_base.go:186] enqueued "snapcontent-2768c340-1fa4-11e9-bb60-fa163ec505d6" for sync
+I0124 12:23:09.180227       1 snapshot_controller_base.go:186] enqueued "snapcontent-43ab615c-1fb4-11e9-bb60-fa163ec505d6" for sync
+I0124 12:23:09.180236       1 snapshot_controller_base.go:266] contentWorker[snapcontent-2768c340-1fa4-11e9-bb60-fa163ec505d6]
+I0124 12:23:09.180248       1 snapshot_controller_base.go:266] contentWorker[snapcontent-43ab615c-1fb4-11e9-bb60-fa163ec505d6]
+I0124 12:23:09.180256       1 snapshot_controller_base.go:186] enqueued "snapcontent-ca4a95f4-1fb1-11e9-bb60-fa163ec505d6" for sync
+I0124 12:23:09.180268       1 snapshot_controller_base.go:186] enqueued "snapcontent-7897df85-1fb3-11e9-bb60-fa163ec505d6" for sync
+I0124 12:23:09.180277       1 snapshot_controller_base.go:266] contentWorker[snapcontent-ca4a95f4-1fb1-11e9-bb60-fa163ec505d6]
+I0124 12:23:09.180289       1 snapshot_controller_base.go:266] contentWorker[snapcontent-7897df85-1fb3-11e9-bb60-fa163ec505d6]
+I0124 12:23:09.180297       1 snapshot_controller_base.go:186] enqueued "snapcontent-c34c1320-1fa5-11e9-bb60-fa163ec505d6" for sync
+I0124 12:23:09.180309       1 snapshot_controller_base.go:186] enqueued "snapcontent-3ab10396-1fa4-11e9-bb60-fa163ec505d6" for sync
+I0124 12:23:09.180318       1 snapshot_controller_base.go:266] contentWorker[snapcontent-c34c1320-1fa5-11e9-bb60-fa163ec505d6]
+I0124 12:23:09.180328       1 snapshot_controller_base.go:266] contentWorker[snapcontent-3ab10396-1fa4-11e9-bb60-fa163ec505d6]
+I0124 12:23:09.180336       1 snapshot_controller_base.go:186] enqueued "snapcontent-bd6a3eb6-1fa6-11e9-bb60-fa163ec505d6" for sync
+I0124 12:23:09.180348       1 snapshot_controller_base.go:186] enqueued "snapcontent-6ff72b35-1fae-11e9-bb60-fa163ec505d6" for sync
+I0124 12:23:09.180358       1 snapshot_controller_base.go:266] contentWorker[snapcontent-bd6a3eb6-1fa6-11e9-bb60-fa163ec505d6]
+I0124 12:23:09.180364       1 snapshot_controller_base.go:266] contentWorker[snapcontent-6ff72b35-1fae-11e9-bb60-fa163ec505d6]
+I0124 12:23:09.180374       1 snapshot_controller_base.go:186] enqueued "snapcontent-2059f527-1fd2-11e9-bb60-fa163ec505d6" for sync
+I0124 12:23:09.180381       1 snapshot_controller_base.go:266] contentWorker[snapcontent-2059f527-1fd2-11e9-bb60-fa163ec505d6]
+I0124 12:24:09.177532       1 reflector.go:215] github.com/kubernetes-csi/external-snapshotter/pkg/client/informers/externalversions/factory.go:117: forcing resync
+I0124 12:24:09.177680       1 snapshot_controller_base.go:169] enqueued "csi-volumes-3906/snapshot-26lrt" for sync
+I0124 12:24:09.177724       1 snapshot_controller_base.go:169] enqueued "csi-volumes-6507/snapshot-fbzm7" for sync
+I0124 12:24:09.177741       1 snapshot_controller_base.go:201] snapshotWorker[csi-volumes-3906/snapshot-26lrt]
+I0124 12:24:09.177748       1 snapshot_controller_base.go:204] snapshotWorker: snapshot namespace [csi-volumes-3906] name [snapshot-26lrt]
+I0124 12:24:09.177758       1 snapshot_controller_base.go:347] checkAndUpdateSnapshotClass [snapshot-26lrt]: VolumeSnapshotClassName [csi-volumes-3906-csi-hostpath-v0-csi-volumes-3906-vsc]
+I0124 12:24:09.177778       1 snapshot_controller.go:769] getSnapshotClass: VolumeSnapshotClassName [csi-volumes-3906-csi-hostpath-v0-csi-volumes-3906-vsc]
+I0124 12:24:09.177786       1 snapshot_controller_base.go:364] VolumeSnapshotClass Snapshotter [csi-hostpath-v0-csi-volumes-3906] Snapshot Controller snapshotterName [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:24:09.177799       1 snapshot_controller_base.go:366] Skipping VolumeSnapshot csi-volumes-3906/snapshot-26lrt for snapshotter [csi-hostpath-v0-csi-volumes-3906] in VolumeSnapshotClass because it does not match with the snapshotter for controller [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:24:09.177823       1 snapshot_controller_base.go:201] snapshotWorker[csi-volumes-6507/snapshot-fbzm7]
+I0124 12:24:09.177831       1 snapshot_controller_base.go:204] snapshotWorker: snapshot namespace [csi-volumes-6507] name [snapshot-fbzm7]
+I0124 12:24:09.177842       1 snapshot_controller_base.go:347] checkAndUpdateSnapshotClass [snapshot-fbzm7]: VolumeSnapshotClassName [csi-volumes-6507-csi-hostpath-csi-volumes-6507-vsc]
+I0124 12:24:09.177856       1 snapshot_controller.go:769] getSnapshotClass: VolumeSnapshotClassName [csi-volumes-6507-csi-hostpath-csi-volumes-6507-vsc]
+I0124 12:24:09.177862       1 snapshot_controller_base.go:364] VolumeSnapshotClass Snapshotter [csi-hostpath-csi-volumes-6507] Snapshot Controller snapshotterName [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:24:09.177873       1 snapshot_controller_base.go:366] Skipping VolumeSnapshot csi-volumes-6507/snapshot-fbzm7 for snapshotter [csi-hostpath-csi-volumes-6507] in VolumeSnapshotClass because it does not match with the snapshotter for controller [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:24:09.177887       1 snapshot_controller_base.go:169] enqueued "default/new-snapshot-demo" for sync
+I0124 12:24:09.177900       1 snapshot_controller_base.go:169] enqueued "csi-volumes-8952/snapshot-h5s4g" for sync
+I0124 12:24:09.177911       1 snapshot_controller_base.go:201] snapshotWorker[default/new-snapshot-demo]
+I0124 12:24:09.177921       1 snapshot_controller_base.go:204] snapshotWorker: snapshot namespace [default] name [new-snapshot-demo]
+I0124 12:24:09.177927       1 snapshot_controller_base.go:347] checkAndUpdateSnapshotClass [new-snapshot-demo]: VolumeSnapshotClassName [csi-hostpath-snapclass]
+I0124 12:24:09.177932       1 snapshot_controller.go:769] getSnapshotClass: VolumeSnapshotClassName [csi-hostpath-snapclass]
+I0124 12:24:09.177943       1 snapshot_controller_base.go:364] VolumeSnapshotClass Snapshotter [csi-hostpath] Snapshot Controller snapshotterName [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:24:09.177950       1 snapshot_controller_base.go:366] Skipping VolumeSnapshot default/new-snapshot-demo for snapshotter [csi-hostpath] in VolumeSnapshotClass because it does not match with the snapshotter for controller [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:24:09.177963       1 snapshot_controller_base.go:201] snapshotWorker[csi-volumes-8952/snapshot-h5s4g]
+I0124 12:24:09.177968       1 snapshot_controller_base.go:204] snapshotWorker: snapshot namespace [csi-volumes-8952] name [snapshot-h5s4g]
+I0124 12:24:09.177979       1 snapshot_controller_base.go:347] checkAndUpdateSnapshotClass [snapshot-h5s4g]: VolumeSnapshotClassName [csi-volumes-8952-csi-hostpath-csi-volumes-8952-vsc]
+I0124 12:24:09.177983       1 snapshot_controller.go:769] getSnapshotClass: VolumeSnapshotClassName [csi-volumes-8952-csi-hostpath-csi-volumes-8952-vsc]
+I0124 12:24:09.177993       1 snapshot_controller_base.go:364] VolumeSnapshotClass Snapshotter [csi-hostpath-csi-volumes-8952] Snapshot Controller snapshotterName [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:24:09.177999       1 snapshot_controller_base.go:366] Skipping VolumeSnapshot csi-volumes-8952/snapshot-h5s4g for snapshotter [csi-hostpath-csi-volumes-8952] in VolumeSnapshotClass because it does not match with the snapshotter for controller [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:24:09.178016       1 snapshot_controller_base.go:169] enqueued "csi-volumes-6595/snapshot-2dtgh" for sync
+I0124 12:24:09.178031       1 snapshot_controller_base.go:201] snapshotWorker[csi-volumes-6595/snapshot-2dtgh]
+I0124 12:24:09.178062       1 snapshot_controller_base.go:204] snapshotWorker: snapshot namespace [csi-volumes-6595] name [snapshot-2dtgh]
+I0124 12:24:09.178073       1 snapshot_controller_base.go:347] checkAndUpdateSnapshotClass [snapshot-2dtgh]: VolumeSnapshotClassName [csi-volumes-6595-csi-hostpath-v0-csi-volumes-6595-vsc]
+I0124 12:24:09.178079       1 snapshot_controller.go:769] getSnapshotClass: VolumeSnapshotClassName [csi-volumes-6595-csi-hostpath-v0-csi-volumes-6595-vsc]
+I0124 12:24:09.178084       1 snapshot_controller_base.go:364] VolumeSnapshotClass Snapshotter [csi-hostpath-v0-csi-volumes-6595] Snapshot Controller snapshotterName [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:24:09.178089       1 snapshot_controller_base.go:215] passed checkAndUpdateSnapshotClass for snapshot "csi-volumes-6595/snapshot-2dtgh"
+I0124 12:24:09.178095       1 snapshot_controller_base.go:377] updateSnapshot "csi-volumes-6595/snapshot-2dtgh"
+I0124 12:24:09.178105       1 util.go:99] storeObjectUpdate updating snapshot "csi-volumes-6595/snapshot-2dtgh" with version 9213
+I0124 12:24:09.178124       1 snapshot_controller.go:140] synchonizing VolumeSnapshot[csi-volumes-6595/snapshot-2dtgh]: bound to: "snapcontent-40ce48c3-1fd2-11e9-bb60-fa163ec505d6", Completed: false
+I0124 12:24:09.178135       1 snapshot_controller.go:189] syncUnreadySnapshot csi-volumes-6595/snapshot-2dtgh
+I0124 12:24:09.178142       1 snapshot_controller.go:352] updateSnapshotStatusWithEvent[csi-volumes-6595/snapshot-2dtgh]
+I0124 12:24:09.178149       1 snapshot_controller.go:355] updateSnapshotStatusWithEvent[snapshot-2dtgh]: the same error &VolumeError{Time:2019-01-24 12:19:10 +0000 UTC,Message:VolumeSnapshotContent is missing,} is already set
+I0124 12:24:09.178172       1 snapshot_controller.go:199] synchronizing unready snapshot[csi-volumes-6595/snapshot-2dtgh]: snapshotcontent "snapcontent-40ce48c3-1fd2-11e9-bb60-fa163ec505d6" requested and not found, will try again next time
+E0124 12:24:09.178185       1 snapshot_controller_base.go:392] could not sync volume "csi-volumes-6595/snapshot-2dtgh": snapshot csi-volumes-6595/snapshot-2dtgh is bound to a non-existing content snapcontent-40ce48c3-1fd2-11e9-bb60-fa163ec505d6
+I0124 12:24:09.180277       1 reflector.go:215] github.com/kubernetes-csi/external-snapshotter/pkg/client/informers/externalversions/factory.go:117: forcing resync
+I0124 12:24:09.180362       1 snapshot_controller_base.go:186] enqueued "snapcontent-2768c340-1fa4-11e9-bb60-fa163ec505d6" for sync
+I0124 12:24:09.180377       1 snapshot_controller_base.go:186] enqueued "snapcontent-43ab615c-1fb4-11e9-bb60-fa163ec505d6" for sync
+I0124 12:24:09.180389       1 snapshot_controller_base.go:266] contentWorker[snapcontent-2768c340-1fa4-11e9-bb60-fa163ec505d6]
+I0124 12:24:09.180397       1 snapshot_controller_base.go:266] contentWorker[snapcontent-43ab615c-1fb4-11e9-bb60-fa163ec505d6]
+I0124 12:24:09.180405       1 snapshot_controller_base.go:186] enqueued "snapcontent-ca4a95f4-1fb1-11e9-bb60-fa163ec505d6" for sync
+I0124 12:24:09.180412       1 snapshot_controller_base.go:186] enqueued "snapcontent-7897df85-1fb3-11e9-bb60-fa163ec505d6" for sync
+I0124 12:24:09.180421       1 snapshot_controller_base.go:266] contentWorker[snapcontent-ca4a95f4-1fb1-11e9-bb60-fa163ec505d6]
+I0124 12:24:09.180427       1 snapshot_controller_base.go:266] contentWorker[snapcontent-7897df85-1fb3-11e9-bb60-fa163ec505d6]
+I0124 12:24:09.180434       1 snapshot_controller_base.go:186] enqueued "snapcontent-6b7861ed-1fb4-11e9-bb60-fa163ec505d6" for sync
+I0124 12:24:09.180440       1 snapshot_controller_base.go:186] enqueued "snapcontent-40ce48c3-1fd2-11e9-bb60-fa163ec505d6" for sync
+I0124 12:24:09.180449       1 snapshot_controller_base.go:266] contentWorker[snapcontent-6b7861ed-1fb4-11e9-bb60-fa163ec505d6]
+I0124 12:24:09.180455       1 snapshot_controller_base.go:266] contentWorker[snapcontent-40ce48c3-1fd2-11e9-bb60-fa163ec505d6]
+I0124 12:24:09.180461       1 snapshot_controller_base.go:186] enqueued "snapcontent-3ab10396-1fa4-11e9-bb60-fa163ec505d6" for sync
+I0124 12:24:09.180467       1 snapshot_controller_base.go:186] enqueued "snapcontent-bd6a3eb6-1fa6-11e9-bb60-fa163ec505d6" for sync
+I0124 12:24:09.180476       1 snapshot_controller_base.go:266] contentWorker[snapcontent-3ab10396-1fa4-11e9-bb60-fa163ec505d6]
+I0124 12:24:09.180482       1 snapshot_controller_base.go:266] contentWorker[snapcontent-bd6a3eb6-1fa6-11e9-bb60-fa163ec505d6]
+I0124 12:24:09.180489       1 snapshot_controller_base.go:186] enqueued "snapcontent-6ff72b35-1fae-11e9-bb60-fa163ec505d6" for sync
+I0124 12:24:09.180495       1 snapshot_controller_base.go:186] enqueued "snapcontent-2059f527-1fd2-11e9-bb60-fa163ec505d6" for sync
+I0124 12:24:09.180503       1 snapshot_controller_base.go:266] contentWorker[snapcontent-6ff72b35-1fae-11e9-bb60-fa163ec505d6]
+I0124 12:24:09.180509       1 snapshot_controller_base.go:266] contentWorker[snapcontent-2059f527-1fd2-11e9-bb60-fa163ec505d6]
+I0124 12:24:09.180516       1 snapshot_controller_base.go:186] enqueued "snapcontent-c34c1320-1fa5-11e9-bb60-fa163ec505d6" for sync
+I0124 12:24:09.180523       1 snapshot_controller_base.go:266] contentWorker[snapcontent-c34c1320-1fa5-11e9-bb60-fa163ec505d6]
+I0124 12:24:10.567865       1 snapshot_controller_base.go:169] enqueued "csi-volumes-6595/snapshot-2dtgh" for sync
+I0124 12:24:10.567895       1 snapshot_controller_base.go:201] snapshotWorker[csi-volumes-6595/snapshot-2dtgh]
+I0124 12:24:10.567902       1 snapshot_controller_base.go:204] snapshotWorker: snapshot namespace [csi-volumes-6595] name [snapshot-2dtgh]
+I0124 12:24:10.567917       1 snapshot_controller_base.go:347] checkAndUpdateSnapshotClass [snapshot-2dtgh]: VolumeSnapshotClassName [csi-volumes-6595-csi-hostpath-v0-csi-volumes-6595-vsc]
+I0124 12:24:10.567923       1 snapshot_controller.go:769] getSnapshotClass: VolumeSnapshotClassName [csi-volumes-6595-csi-hostpath-v0-csi-volumes-6595-vsc]
+I0124 12:24:10.567930       1 snapshot_controller_base.go:364] VolumeSnapshotClass Snapshotter [csi-hostpath-v0-csi-volumes-6595] Snapshot Controller snapshotterName [csi-hostpath-v0-csi-volumes-6595]
+I0124 12:24:10.567938       1 snapshot_controller_base.go:424] snapshot "csi-volumes-6595/snapshot-2dtgh" deleted
+I0124 12:24:10.567943       1 snapshot_controller_base.go:434] deleteSnapshot["csi-volumes-6595/snapshot-2dtgh"]: scheduling sync of content snapcontent-40ce48c3-1fd2-11e9-bb60-fa163ec505d6
+I0124 12:24:10.567956       1 snapshot_controller_base.go:266] contentWorker[snapcontent-40ce48c3-1fd2-11e9-bb60-fa163ec505d6]
